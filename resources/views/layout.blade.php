@@ -11,13 +11,9 @@
         @vite('resources/js/app.js')
 
     </head>
-    <body class="antialiased bg-slate-100">
+    <body class="antialiased">
         <main class="container mx-auto bg-white">
             <x-layout.header />
-            <div class="">
-                <x-auth.login /> 
-                <x-auth.register /> 
-            </div>
             @yield('main')
         </main>
     </body>

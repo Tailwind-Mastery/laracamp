@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +22,20 @@ Route::controller(HomeController::class)->group(function () {
 });
 
 Route::controller(AuthController::class)->group(function () {
-    Route::post('/login', 'login')->name('login');
-    Route::post('/register', 'register')->name('register');
+    Route::get('/login', 'loginIndex')->name('loginPage');
+    Route::get('/register', 'registerIndex')->name('registerPage');
+    Route::post('/login', 'login')->name('postLogin');
+    Route::post('/register', 'register')->name('postRegister');
+});
+
+Route::controller(ProductController::class)->group(function () {
+    Route::get('/product', 'index')->name('productPage');
+    Route::get('/product/create', 'create')->name('createProduct');
+    Route::post('/product/store', 'store')->name('storeProduct');
+});
+
+Route::controller(ProfileController::class)->group(function () {
+    Route::get('/profile', 'index')->name('profilePage');
+    Route::get('/product/edit', 'edit')->name('editProfile');
+    Route::patch('/product/update', 'update')->name('updateProfile');
 });

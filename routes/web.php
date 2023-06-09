@@ -26,6 +26,7 @@ Route::controller(AuthController::class)->group(function () {
     Route::get('/register', 'registerIndex')->name('registerPage');
     Route::post('/login', 'login')->name('postLogin');
     Route::post('/register', 'register')->name('postRegister');
+    Route::post('/logout', 'logout')->name('postLogout')->middleware('auth');
 });
 
 Route::controller(ProductController::class)->group(function () {

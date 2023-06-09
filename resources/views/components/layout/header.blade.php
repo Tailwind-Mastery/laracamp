@@ -7,5 +7,10 @@
         <a href="{{route('profilePage')}}" class="">Profile</a>
         <a href="{{route('loginPage')}}" class="">Login</a>
         <a href="{{route('registerPage')}}" class="">Register</a>
+
+        <form @submit.prevent="" method="POST" action="{{route('postLogout')}}">
+            @csrf <button>Logout</button>
+        </form>
+        
     </nav>
 </header>

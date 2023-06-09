@@ -25,14 +25,22 @@
             </div>
             
         </div>
-        
+
+        @if($errors)
+        <div class="flex flex-col">
+            @foreach($errors->all() as $error)
+            <p class="text-red-500">{{$error}}</p>
+            @endforeach
+        </div>
+        @endif
+
         <div class="flex flex-col gap-3 items-start">
             
             <label for="email" class="font-medium cursor-pointer">
                 Email Address
             </label>
             
-            <input type="email" id="email" class="px-3 py-1 border rounded w-full">
+            <input type="email" id="email" name="email" class="px-3 py-1 border rounded w-full" value="{{old('email')}}">
             
         </div>
         
@@ -42,7 +50,7 @@
                 Password
             </label>
 
-            <input type="password" id="password" class="px-3 py-1 border rounded w-full">
+            <input type="password" id="password" name="password" class="px-3 py-1 border rounded w-full">
             
         </div>
         
@@ -52,7 +60,7 @@
                 Username
             </label>
 
-            <input type="text" id="username" class="px-3 py-1 border rounded w-full">
+            <input type="text" id="username" name="username" class="px-3 py-1 border rounded w-full" value="{{old('username')}}">
             
         </div>
         

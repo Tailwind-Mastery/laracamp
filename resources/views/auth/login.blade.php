@@ -25,6 +25,14 @@
             </div>
             
         </div>
+
+        @if($errors)
+        <div class="flex flex-col">
+            @foreach($errors->all() as $error)
+            <p class="text-red-500">{{$error}}</p>
+            @endforeach
+        </div>
+        @endif
         
         <div class="flex flex-col gap-3 items-start">
             
@@ -32,7 +40,7 @@
                 Email Address
             </label>
             
-            <input type="email" id="email" class="px-3 py-1 border rounded w-full">
+            <input type="email" id="email" name="email" class="px-3 py-1 border rounded w-full" value="{{old('email')}}">
             
         </div>
         
@@ -42,15 +50,17 @@
                 Password
             </label>
 
-            <input type="password" id="password" class="px-3 py-1 border rounded w-full">
+            <input type="password" id="password" name="password" class="px-3 py-1 border rounded w-full">
             
         </div>
         
         <div class="flex gap-3 justify-between">
             
-            <div class="flex gap-3 items-center">
+            <div class="flex gap-3 items-center" x-data="{value: 0}">
                 
-                <input type="checkbox" name="remember" id="remember">
+                <input type="checkbox" id="remember" x-model="value">
+
+                <input type="hidden" name="remember" :value="value == true ? 1 : 0">
                 
                 <label for="remember" class="cursor-pointer">
                     Remember me

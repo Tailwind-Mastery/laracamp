@@ -2,7 +2,7 @@
 
     <div class="flex flex-col gap-3">
         <p class="text-2xl font-medium">
-            Shop by category
+            Shop by style
         </p>
         <p class="text-slate-500">
             Each season, we collaborate with world-class designers to create a collection inspired by natural world.

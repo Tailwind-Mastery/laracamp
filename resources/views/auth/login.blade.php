@@ -2,7 +2,7 @@
 @section('main')
 <main class="w-full flex bg-white lg:items-center lg:py-5">
 
-    <form method="POST" action="{{route('postLogin')}}" class="flex flex-col gap-7 lg:w-1/2 p-5 md:p-10 lg:p-16 w-full gap-10">
+    <form method="POST" action="{{route('postLogin')}}" class="flex flex-col gap-7 lg:w-1/2 p-5 md:p-10 w-full gap-10">
 
         @csrf
 
@@ -81,23 +81,34 @@
         <div class="border rounded flex justify-center relative my-5">
             <p class="font-medium absolute top-[-0.8rem] bg-white px-5">Or continue with</p>
         </div>
-        
-        <div class="flex gap-3">
+    
+        <div class="grid grid-cols-1 md:grid-cols-2 md:flex-wrap gap-3 md:justify-between">
             
-            <button class="bg-black px-5 py-3 text-center font-medium text-white rounded w-1/2">
-                Google
+            <button class="flex items-center md:gap-5 gap-10 border px-5 py-3 font-medium rounded">
+                <img src="{{asset('storage/images/web/google.png')}}" alt="Google Icon" class="w-7">
+                <span class="">Google</span>
             </button>
             
-
-            <button class="bg-black px-5 py-3 text-center font-medium text-white rounded w-1/2">
-                Github
+            <button class="flex items-center md:gap-5 gap-10 border px-5 py-3 font-medium rounded">
+                <img src="{{asset('storage/images/web/github.png')}}" alt="Github Icon" class="w-7">
+                <span class="">Github</span>
             </button>
-
+            
+            <button class="flex items-center md:gap-5 gap-10 border px-5 py-3 font-medium rounded">
+                <img src="{{asset('storage/images/web/twitter.png')}}" alt="Twitter Icon" class="w-7">
+                <span class="">Twitter</span>
+            </button>
+            
+            <button class="flex items-center md:gap-5 gap-10 border px-5 py-3 font-medium rounded">
+                <img src="{{asset('storage/images/web/facebook.png')}}" alt="Facebook Icon" class="w-7">
+                <span class="">Facebook</span>
+            </button>
+            
         </div>
             
     </form>
 
-    <img src="{{asset('storage/images/web/login.jpg')}}" alt="Landing Login" class="hidden lg:block object-cover w-1/2 h-full rounded-tl-lg rounded-bl-lg">
+    <img src="{{asset('storage/images/web/login.jpg')}}" alt="Landing Login" class="hidden lg:block object-cover w-1/2 h-[50rem] rounded-tl-lg rounded-bl-lg">
 
 </main>
 @endsection

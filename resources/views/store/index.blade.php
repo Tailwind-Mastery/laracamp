@@ -1,9 +1,6 @@
 @extends('../layout')
 @section('main')
 <main class="p-5 flex flex-col gap-10">
-    {{--
-        <x-store.header />
-        --}}
 
 <section class="flex gap-5 items-center py-10 md:py-0">
 

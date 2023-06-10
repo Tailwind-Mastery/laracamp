@@ -95,10 +95,9 @@
 
         </div>
             
-        
     </form>
 
-    <img src="{{asset('storage/images/web/green-fire.jpg')}}" alt="Landing Login" class="hidden lg:block object-cover w-1/2 h-full rounded-tl rounded-bl">
+    <img src="{{asset('storage/images/web/login.jpg')}}" alt="Landing Login" class="hidden lg:block object-cover w-1/2 h-full rounded-tl-lg rounded-bl-lg">
 
 </main>
 @endsection

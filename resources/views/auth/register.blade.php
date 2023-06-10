@@ -88,7 +88,7 @@
         
     </form>
 
-    <img src="{{asset('storage/images/web/blue-fire.jpg')}}" alt="Landing Register" class="hidden lg:block object-cover w-1/2 h-full rounded-tl rounded-bl">
+    <img src="{{asset('storage/images/web/register.jpg')}}" alt="Landing Register" class="hidden lg:block object-cover w-1/2 h-full rounded-tl-lg rounded-bl-lg">
 
 </main>
 @endsection

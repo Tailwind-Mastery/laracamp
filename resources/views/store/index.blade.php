@@ -15,7 +15,7 @@
             Best buyer experience is neccessary for a store to grow healthy with wealth.
         </p>
 
-        <a href="#" class="mt-10 px-5 py-3 font-medium text-white bg-black rounded">
+        <a href="{{route('productPage')}}" class="mt-10 px-5 py-3 font-medium text-white bg-black rounded">
             Shop Productivity
         </a>
     </aside>

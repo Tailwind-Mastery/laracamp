@@ -83,8 +83,6 @@
 
     <section class="flex md:flex-row flex-col-reverse justify-between items-center gap-5 py-10 border-t">
 
-    
-
         <p class="text-slate-500 text-center" x-data="{year: new Date().getFullYear()}">
             &copy; <span x-text="year"></span> Laracamp, Inc. All rights reserved.
         </p>

@@ -10,37 +10,57 @@
         
         @for($i=0;$i< 12;$i++)
     
-        <a href="#" class="flex flex-col rounded-lg overflow-hidden">
+        <article class="flex flex-col rounded-lg overflow-hidden shadow">
             
             <img src="{{asset('storage/images/web/shirt.jpg')}}" class="h-96 object-cover hover:brightness-110 transition-all duration-150 ease-in-out" alt="Shirt">
             
-            <div class="flex flex-col gap-3 p-5 border rounded-lg hover:bg-slate-50  transition-all duration-150 ease-in-out">
-                <h2 class="font-medium text-lg">
-                    Basic 3 Pack Shirt
-                </h2>
-                
+            <div class="flex flex-col gap-2 p-5 hover:bg-slate-50 transition-all duration-150 ease-in-out">
+
+                <aside class="flex justify-between mb-3">
+                    <a href="#" class="font-medium text-lg">
+                        Basic 3 Pack Shirt
+                    </a>
+
+                    <p class="text-lg font-medium lining-nums">
+                        $256
+                    </p>
+                </aside>
+
+                <p class="font-medium text-slate-500">
+                    Clothes
+                </p>
+                                
                 <p class="text-slate-500">
                     The best shirt in the market that we have presented infront of your.
                 </p>
                 
-                <div class="flex flex-col gap-1">
-                    
-                    <p class="text-slate-500">
-                        41 reviews
-                    </p>
+                <div class="flex gap-5 items-center justify-between">
 
-                    <p class="italic text-slate-500">
-                        8 colors
-                    </p>
-                    
-                    <p class="text-lg font-medium lining-nums">
-                        $256
-                    </p>
+                    <aside class="flex gap-2 items-center">
+                        <img src="{{asset('storage/images/web/swatches.png')}}" alt="Swatch Icon" class="w-7">
+                        
+                        <div class="flex gap-2 cursor-pointer">
+                            <span class="p-2 rounded-full bg-black"></span>
+                            <span class="p-2 rounded-full bg-blue-500"></span>
+                            <span class="p-2 rounded-full bg-red-500"></span>
+                        </div>
+                    </aside>
+
+                    <aside class="flex gap-1 items-center">
+                        <img src="{{asset('storage/images/web/star.png')}}" alt="Star Icon" class="w-8">
+                        <p class="font-medium text-lg">4.1</p>
+                    </aside>
                     
                 </div>
+
+                <button class="bg-black text-white px-5 py-3 font-medium rounded">
+                    Add to bag
+                </button>
+
+                    
             </div>
             
-        </a>
+        </article>
         @endfor
     </div>
     

@@ -1,4 +1,4 @@
-<section class="flex flex-col xl:flex-row lg:p-10 xl:px-0 bg-gradient-to-b from-black/20 to-white xl:gap-10 items-center">
+<section class="flex flex-col xl:flex-row lg:p-10 xl:px-0 xl:gap-10 items-center">
     
     <div class="flex flex-col gap-10 lg:gap-12 md:w-4/5 items-center px-5 md:px-10 py-20 md:py-32">
 
@@ -24,6 +24,6 @@
 
     </div>
 
-    <img src="{{asset('storage/images/web/landing-fire.jpg')}}" alt="Landing Photo" class="w-full hidden lg:block lg:h-[50rem] xl:w-2/5 object-cover rounded-lg xl:rounded-tr-none xl:rounded-br-none shadow-xl">
+    <img src="{{asset('storage/images/web/landing-fire.jpg')}}" alt="Landing Photo" class="w-full hidden xl:block xl:h-[50rem] xl:w-2/5 object-cover rounded-lg xl:rounded-tr-none xl:rounded-br-none shadow-xl">
 
 </section>

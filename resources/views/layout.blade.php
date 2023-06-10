@@ -15,6 +15,7 @@
         <main class="container mx-auto bg-white">
             <x-layout.header />
             @yield('main')
+            <x-layout.footer />
         </main>
     </body>
 </html>

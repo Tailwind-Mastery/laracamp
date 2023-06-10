@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,4 +40,8 @@ Route::controller(ProfileController::class)->group(function () {
     Route::get('/profile', 'index')->name('profilePage');
     Route::get('/product/edit', 'edit')->name('editProfile');
     Route::patch('/product/update', 'update')->name('updateProfile');
+});
+
+Route::controller(StoreController::class)->group(function () {
+    Route::get('/store', 'index')->name('storePage');
 });

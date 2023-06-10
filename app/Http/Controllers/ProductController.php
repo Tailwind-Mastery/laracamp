@@ -17,6 +17,7 @@ class ProductController extends Controller
     {
         return view('product.create');
     }
+
     public function store()
     {
 
@@ -26,7 +27,7 @@ class ProductController extends Controller
             'title' => 'required',
             'slug' => 'required|unique:products,slug',
             'price' => 'required|numeric',
-            'thumbnail' => 'required|image',
+            'thumbnail' => 'filled|image',
             'image-1' => 'filled|image',
             'image-2' => 'filled|image',
             'image-3' => 'filled|image',
@@ -51,4 +52,5 @@ class ProductController extends Controller
                 
         return to_route('productPage');
     }
+
 }

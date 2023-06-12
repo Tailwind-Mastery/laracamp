@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -32,16 +33,17 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/product', 'index')->name('productPage');
-    Route::get('/product/create', 'create')->name('createProduct');
-    Route::post('/product/store', 'store')->name('storeProduct');
-});
-
-Route::controller(ProfileController::class)->group(function () {
-    Route::get('/profile', 'index')->name('profilePage');
-    Route::get('/product/edit', 'edit')->name('editProfile');
-    Route::patch('/product/update', 'update')->name('updateProfile');
+    // Route::get('/product/create', 'create')->name('createProduct');
+    // Route::post('/product/store', 'store')->name('storeProduct');
 });
 
 Route::controller(StoreController::class)->group(function () {
     Route::get('/store', 'index')->name('storePage');
+});
+
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/category', 'index')->name('categoryPage');
+    Route::get('/category/{slug}', 'show')->name('showCategory');
+    Route::get('/category/create', 'create')->name('createCategory');
+    Route::post('/category/store', 'store')->name('storeCategory');
 });

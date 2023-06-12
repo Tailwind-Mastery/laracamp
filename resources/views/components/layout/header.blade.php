@@ -14,7 +14,7 @@
             
             <a href="{{route('storePage')}}" class="@if(url()->current() == route('storePage')) font-medium @endif">Store</a>
 
-            <a href="{{route('storePage')}}" class="@if(url()->current() == route('storePage')) font-medium @endif">Category</a>
+            <a href="{{route('categoryPage')}}" class="@if(url()->current() == route('categoryPage')) font-medium @endif">Category</a>
             
         </nav>
 
@@ -47,7 +47,7 @@
         <div class="flex flex-col gap-1 py-2">
 
             <a href="{{route('storePage')}}" class="@if(url()->current() == route('storePage')) font-medium @endif">Store</a>
-            <a href="{{route('storePage')}}" class="@if(url()->current() == route('storePage')) font-medium @endif">Category</a>
+            <a href="{{route('categoryPage')}}" class="@if(url()->current() == route('categoryPage')) font-medium @endif">Category</a>
 
         </div>
 

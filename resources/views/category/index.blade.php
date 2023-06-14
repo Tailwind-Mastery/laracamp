@@ -11,7 +11,7 @@
         Explore multiple categories, browse through our collections and search for the best you like. 
     </p>
     <p class="text-lg font-medium">
-        Total Products 567
+        Total Categories {{$category_count}}
     </p>
 
     <form method="get" class="flex mt-10 rounded shadow overflow-hidden md:w-1/2 divide-x">
@@ -29,27 +29,12 @@
 
 </section>
 
-<section class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-5">
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
 
 @foreach($categories as $category)
 
-<aside class="flex items-end relative h-96 rounded overflow-hidden">
-    <img src="{{asset('storage/category/'.$category->image->title)}}" alt="Bag Category" class="object-cover w-full h-full transition duration-150 ease-in-out hover:brightness-110 absolute top-0">
-    <div class="flex flex-col gap-1 z-10 bg-black/70 w-full text-white p-3">
-        <div class="flex items-center gap-2">
-            <a href="{{route('showCategory', ['slug' => $category->slug])}}" class="font-medium text-xl">
-                {{$category->title}}
-            </a>
-            <img src="{{asset('storage/images/web/arrow-left-w.svg')}}" alt="Left Arrow" class="w-7">
-        </div>
-        <p class="">
-            80 Products
-        </p>
-        <p class="">
-            {{$category->description}}
-        </p>
-    </div>
-</aside>
+<x-store.category-card :title="$category->title" :description="$category->description" :url="route('showCategory', ['slug' => $category->slug])" :image="asset('storage/category/'.$category->image->title)"/>
+
 @endforeach
     
 </section>

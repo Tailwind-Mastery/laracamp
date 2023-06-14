@@ -15,10 +15,11 @@ class CategoryController extends Controller
     {
         $search = request()->get('search');
 
-        $categories = Category::where('title', 'like', "$search%")->get()->load('image');
+        $categories = Category::where('title', 'like', "%$search%")->get()->load('image');
 
         return view('category.index', [
             'categories' => $categories,
+            'category_count' => $categories->count(),
         ]);
     }
 
@@ -28,7 +29,7 @@ class CategoryController extends Controller
         $category = Category::where('slug', $slug)->first();
         $products = Product::where([
             ['category_id',$category->id],
-            ['title', 'like', "$search%"]
+            ['title', 'like', "%$search%"]
         ])->get()->load('image');
 
         return view('category.show', [

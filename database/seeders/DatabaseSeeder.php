@@ -24,12 +24,10 @@ class DatabaseSeeder extends Seeder
     {
         Storage::deleteDirectory('public/users');
         Storage::deleteDirectory('public/category');
-        Storage::deleteDirectory('public/houses');
-        Storage::deleteDirectory('public/chairs');
+        Storage::deleteDirectory('public/products');
         $userImgs = Storage::files('public/userImgs');
         $catImgs = Storage::files('public/catImgs');
-        $chairImgs = Storage::files('public/chairImgs');
-        $houseImgs = Storage::files('public/houseImgs');
+       
 
         $regions = [
             "Asia" => [
@@ -764,11 +762,70 @@ class DatabaseSeeder extends Seeder
 
         $categories = [
             [
-                'title' => 'Air Conditioners',
-                'slug' => 'air-conditioner',
-                'description' => 'Breathe healthy, fresh and organic',
+                'title' => 'Air Pods',
+                'slug' => 'airpods',
+                'description' => 'Best quality sound for ears',
                 'products' => [
-                    
+                    [
+                        'title' => 'Simple Air Pods White',
+                        'slug' => 'simple-air-pods-white',
+                        'price' => 199,
+                        'user_id' => 1,
+                    ],
+                    [
+                        'title' => 'Cute Air Pods White',
+                        'slug' => 'cute-air-pods-white',
+                        'price' => 1099,
+                        'user_id' => 2,
+                    ],
+                    [
+                        'title' => 'Power Air Pods White',
+                        'slug' => 'power-air-pods-white',
+                        'price' => 299,
+                        'user_id' => 3,
+                    ],
+                    [
+                        'title' => 'Compact Air Pods White',
+                        'slug' => 'compact-air-pods-white',
+                        'price' => 999,
+                        'user_id' => 4,
+                    ],
+                    [
+                        'title' => 'Unique Air Pods White',
+                        'slug' => 'unique-air-pods-white',
+                        'price' => 399,
+                        'user_id' => 5,
+                    ],
+                    [
+                        'title' => 'Classic Air Pods White',
+                        'slug' => 'classic-air-pods-white',
+                        'price' => 899,
+                        'user_id' => 6,
+                    ],
+                    [
+                        'title' => 'Shady Air Pods White',
+                        'slug' => 'shady-air-pods-white',
+                        'price' => 499,
+                        'user_id' => 7,
+                    ],
+                    [
+                        'title' => 'Elegant Air Pods White',
+                        'slug' => 'elegant-air-pods-white',
+                        'price' => 799,
+                        'user_id' => 8,
+                    ],
+                    [
+                        'title' => 'Smooth Air Pods White',
+                        'slug' => 'smooth-air-pods-white',
+                        'price' => 599,
+                        'user_id' => 9,
+                    ],
+                    [
+                        'title' => 'Vibrant Air Pods black',
+                        'slug' => 'vibrant-air-pods-black',
+                        'price' => 699,
+                        'user_id' => 10,
+                    ],
                 ],
             ], 
             [
@@ -776,15 +833,66 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'bags',
                 'description' => 'Travel with style through life',
                 'products' => [
-                    
-                ],
-            ], 
-            [
-                'title' => 'Bikes',
-                'slug' => 'bikes',
-                'description' => 'Bikes are fun to travel with',
-                'products' => [
-                    
+                    [
+                        'title' => 'Maiten Classy Green',
+                        'slug' => 'maiten-classy-green',
+                        'price' => 599,
+                        'user_id' => 1,
+                    ],
+                    [
+                        'title' => 'RX Nomatic Black',
+                        'slug' => 'rx-nomatic-black',
+                        'price' => 899,
+                        'user_id' => 2,
+                    ],
+                    [
+                        'title' => 'Classic Blue Look',
+                        'slug' => 'classic-blue-look',
+                        'price' => 299,
+                        'user_id' => 3,
+                    ],
+                    [
+                        'title' => 'HXL Leather Brown',
+                        'slug' => 'hxl-leather-brown',
+                        'price' => 499,
+                        'user_id' => 4,
+                    ],
+                    [
+                        'title' => 'Haupes Shady Green',
+                        'slug' => 'haupes-shady-green',
+                        'price' => 799,
+                        'user_id' => 5,
+                    ],
+                    [
+                        'title' => 'Shield Camping Green',
+                        'slug' => 'shield-camping-green',
+                        'price' => 199,
+                        'user_id' => 6,
+                    ],
+                    [
+                        'title' => 'Maganol Red Blaze',
+                        'slug' => 'maganol-red-blaze',
+                        'price' => 699,
+                        'user_id' => 7,
+                    ],
+                    [
+                        'title' => 'Miller Leathery Pink',
+                        'slug' => 'miller-leathery-pink',
+                        'price' => 999,
+                        'user_id' => 8,
+                    ],
+                    [
+                        'title' => 'Titanic X Silver Black',
+                        'slug' => 'titanix-x-silver-black',
+                        'price' => 399,
+                        'user_id' => 9,
+                    ],
+                    [
+                        'title' => 'Vinta Mountain Green',
+                        'slug' => 'vinta-mountain-green',
+                        'price' => 10999,
+                        'user_id' => 10,
+                    ],
                 ],
             ], 
             [
@@ -792,9 +900,68 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'boats',
                 'description' => 'Boats cruising through sea mellow',
                 'products' => [
-                    
+                    [
+                        'title' => 'Thunder Heavy White Boat',
+                        'slug' => 'thunder-heavy-white-boat',
+                        'price' => 199,
+                        'user_id' => 1,
+                    ],
+                    [
+                        'title' => 'Fishing Season Blue Boat',
+                        'slug' => 'fishing-season-blue-boat',
+                        'price' => 1099,
+                        'user_id' => 2,
+                    ],
+                    [
+                        'title' => 'Tribal Vintage Brown Boat',
+                        'slug' => 'tribal-vintage-brown-boat',
+                        'price' => 299,
+                        'user_id' => 3,
+                    ],
+                    [
+                        'title' => 'Stallion Deck Peach Boat',
+                        'slug' => 'stallion-deck-peach-boat',
+                        'price' => 999,
+                        'user_id' => 4,
+                    ],
+                    [
+                        'title' => 'Rusty White Blue Boat',
+                        'slug' => 'rusty-white-blue-boat',
+                        'price' => 399,
+                        'user_id' => 5,
+                    ],
+                    [
+                        'title' => 'Rushing Power White Boat',
+                        'slug' => 'rushing-power-white-boat',
+                        'price' => 899,
+                        'user_id' => 6,
+                    ],
+                    [
+                        'title' => 'Elegant Peace Red Boat',
+                        'slug' => 'elegant-peace-red-boat',
+                        'price' => 499,
+                        'user_id' => 7,
+                    ],
+                    [
+                        'title' => 'Storm Chaser White Boat',
+                        'slug' => 'storm-chaser-white-boat',
+                        'price' => 799,
+                        'user_id' => 8,
+                    ],
+                    [
+                        'title' => 'Family Fun White Boat',
+                        'slug' => 'family-fun-white-boat',
+                        'price' => 599,
+                        'user_id' => 9,
+                    ],
+                    [
+                        'title' => 'Long holiday White Boat',
+                        'slug' => 'long-holiday-white-boat',
+                        'price' => 699,
+                        'user_id' => 10,
+                    ],
                 ],
-            ], 
+            ],
             [
                 'title' => 'Cars',
                 'slug' => 'cars',
@@ -802,15 +969,141 @@ class DatabaseSeeder extends Seeder
                 'products' => [
                     
                 ],
-            ],  
+            ], 
             [
                 'title' => 'Chairs',
                 'slug' => 'chairs',
-                'description' => 'Rest on the most peaceful pieces',
+                'description' => 'Comfortable, Elegant and beautiful',
                 'products' => [
-                    
+                    [
+                        'title' => 'Comfy Baby Green Chair',
+                        'slug' => 'comfy-baby-green-chair',
+                        'price' => 199,
+                        'user_id' => 1,
+                    ],
+                    [
+                        'title' => 'Garden Red Plastic Chair',
+                        'slug' => 'garden-red-plastic-chair',
+                        'price' => 1099,
+                        'user_id' => 2,
+                    ],
+                    [
+                        'title' => 'Comfy Elegant Gray Chair',
+                        'slug' => 'comfy-elegant-gray-chair',
+                        'price' => 299,
+                        'user_id' => 3,
+                    ],
+                    [
+                        'title' => 'Curve Design Yellow Chair',
+                        'slug' => 'curve-design-yellow-chair',
+                        'price' => 999,
+                        'user_id' => 4,
+                    ],
+                    [
+                        'title' => 'Elegant Foam Orange Chair',
+                        'slug' => 'elegant-foam-orange-chair',
+                        'price' => 399,
+                        'user_id' => 5,
+                    ],
+                    [
+                        'title' => 'Stylish Kings White Chiar',
+                        'slug' => 'stylish-kings-white-chair',
+                        'price' => 899,
+                        'user_id' => 6,
+                    ],
+                    [
+                        'title' => 'Beautiful Woven Shell Chair',
+                        'slug' => 'beautiful-woven-shell-chair',
+                        'price' => 499,
+                        'user_id' => 7,
+                    ],
+                    [
+                        'title' => 'Elegant Leather Brown Chair',
+                        'slug' => 'elegant-leather-brown-chair',
+                        'price' => 799,
+                        'user_id' => 8,
+                    ],
+                    [
+                        'title' => 'Stylish Woven Deck Chairs',
+                        'slug' => 'stylish-woven-deck-chairs',
+                        'price' => 599,
+                        'user_id' => 9,
+                    ],
+                    [
+                        'title' => 'Comfy Cushion White Chair',
+                        'slug' => 'comfy-cushion-white-chair',
+                        'price' => 699,
+                        'user_id' => 10,
+                    ],
+                ]
+            ],
+            [
+                'title' => 'Cycles',
+                'slug' => 'cycles',
+                'description' => 'cycles are fun to travel with',
+                'products' => [
+                    [
+                        'title' => 'Beach Master Black Cycle',
+                        'slug' => 'beach-master-black-cycle',
+                        'price' => 199,
+                        'user_id' => 1,
+                    ],
+                    [
+                        'title' => 'Mountain Bike Black Cycle',
+                        'slug' => 'mountain-bike-black-cycle',
+                        'price' => 1099,
+                        'user_id' => 2,
+                    ],
+                    [
+                        'title' => 'Simple Home Cyan Cycle',
+                        'slug' => 'simple-home-cyan-cycle',
+                        'price' => 299,
+                        'user_id' => 3,
+                    ],
+                    [
+                        'title' => 'Forest Blazing Black Cycle',
+                        'slug' => 'forest-blazing-black-cycle',
+                        'price' => 999,
+                        'user_id' => 4,
+                    ],
+                    [
+                        'title' => 'Shiny Appeal Puple Cycle',
+                        'slug' => 'shiny-appeal-purple-cycle',
+                        'price' => 399,
+                        'user_id' => 5,
+                    ],
+                    [
+                        'title' => 'Mobike Basket Red Cycle',
+                        'slug' => 'mobike-basket-red-cycle',
+                        'price' => 899,
+                        'user_id' => 6,
+                    ],
+                    [
+                        'title' => 'Performance Rider Black Cycle',
+                        'slug' => 'performance-rider-black-cycle',
+                        'price' => 499,
+                        'user_id' => 7,
+                    ],
+                    [
+                        'title' => 'Pearson Classic Black Cycle',
+                        'slug' => 'pearson-classic-black-cycle',
+                        'price' => 799,
+                        'user_id' => 8,
+                    ],
+                    [
+                        'title' => 'Triban Smooth White Cycle',
+                        'slug' => 'triban-smooth-white-cycle',
+                        'price' => 599,
+                        'user_id' => 9,
+                    ],
+                    [
+                        'title' => 'Ofo Basket Yellow Cycle',
+                        'slug' => 'offo-basket-yellow-cycle',
+                        'price' => 699,
+                        'user_id' => 10,
+                    ],
                 ],
-            ], 
+            ],  
             [
                 'title' => 'Glasses',
                 'slug' => 'glasses',
@@ -941,6 +1234,81 @@ class DatabaseSeeder extends Seeder
                 ],
             ], 
             [
+                'title' => 'Plants',
+                'slug' => 'plants',
+                'description' => 'Breathe well and have a healthy habit',
+                'products' => [
+                    
+                ],
+            ], 
+            [
+                'title' => 'Shirts',
+                'slug' => 'shirts',
+                'description' => 'Dress well and Breathe Fashion',
+                'products' => [
+                    [
+                        'title' => 'Simple Black Shirt',
+                        'slug' => 'simple-black-shirt',
+                        'price' => 199,
+                        'user_id' => 1,
+                    ],
+                    [
+                        'title' => 'Stylish Dotted Blue Shirt',
+                        'slug' => 'stylish-dotted-blue-shirt',
+                        'price' => 1099,
+                        'user_id' => 2,
+                    ],
+                    [
+                        'title' => 'Checks Dark Blue Shirt',
+                        'slug' => 'checks-dark-blue-shirt',
+                        'price' => 299,
+                        'user_id' => 3,
+                    ],
+                    [
+                        'title' => 'Dark Styled Green Shirt',
+                        'slug' => 'dark-styled-green-shirt',
+                        'price' => 999,
+                        'user_id' => 4,
+                    ],
+                    [
+                        'title' => 'Decent Pure Green Shirt',
+                        'slug' => 'decent-pure-green-shirt',
+                        'price' => 399,
+                        'user_id' => 5,
+                    ],
+                    [
+                        'title' => 'Smart Light Blue Shirt',
+                        'slug' => 'smart-light-blue-shirt',
+                        'price' => 899,
+                        'user_id' => 6,
+                    ],
+                    [
+                        'title' => 'Multiple Pattern Shirt',
+                        'slug' => 'multiple-pattern-shirt',
+                        'price' => 499,
+                        'user_id' => 7,
+                    ],
+                    [
+                        'title' => 'Decent Design Shirt',
+                        'slug' => 'decent-design-shirt',
+                        'price' => 799,
+                        'user_id' => 8,
+                    ],
+                    [
+                        'title' => 'Smart Purple Shirt',
+                        'slug' => 'smart-purple-shirt',
+                        'price' => 599,
+                        'user_id' => 9,
+                    ],
+                    [
+                        'title' => 'Checked Red Shirt',
+                        'slug' => 'checked-red-shirt',
+                        'price' => 699,
+                        'user_id' => 10,
+                    ],
+                ],
+            ], 
+            [
                 'title' => 'Toys',
                 'slug' => 'toys',
                 'description' => 'Have great fun and adventures playing',
@@ -978,24 +1346,53 @@ class DatabaseSeeder extends Seeder
                 $image->save();
 
                 foreach($each['products'] as $key => $eachProd) {
+
                     $product = new Product();
                     $product->user_id = $eachProd['user_id'];
                     $product->category_id = $category->id;
-                    $product->state_id = $eachProd['state_id'];
-                    $product->country_id = $eachProd['country_id'];
-                    $product->city_id = $eachProd['city_id'];
+                    $product->state_id = $eachProd['state_id'] ?? null;
+                    $product->country_id = $eachProd['country_id'] ?? null;
+                    $product->city_id = $eachProd['city_id'] ?? null;
                     $product->title = $eachProd['title'];
                     $product->slug = $eachProd['slug'];
                     $product->price = $eachProd['price'];
                     $product->save();
 
                     // Image Upload
-                    $newFile = new File(storage_path('app/'.$houseImgs[$key]));
+
+                    $newFile = null;
+                    switch ($category->slug) {
+                        case 'airpods':
+                            $newFile = new File(storage_path('app/'.Storage::files('public/airpodImgs')[$key]));
+                        break;
+                        case 'bags':
+                            $newFile = new File(storage_path('app/'.Storage::files('public/bagImgs')[$key]));
+                        break;
+                        case 'boats':
+                            $newFile = new File(storage_path('app/'.Storage::files('public/boatImgs')[$key]));
+                        break;
+                        case 'cars':
+                            $newFile = new File(storage_path('app/'.Storage::files('public/carImages')[$key]));
+                        break;
+                        case 'chairs':
+                            $newFile = new File(storage_path('app/'.Storage::files('public/chairImgs')[$key]));
+                        break;
+                        case 'cycles':
+                            $newFile = new File(storage_path('app/'.Storage::files('public/chairImgs')[$key]));
+                        break;
+                        case 'houses':
+                            $newFile = new File(storage_path('app/'.Storage::files('public/houseImgs')[$key]));
+                        break;
+                        case 'shirts':
+                            $newFile = new File(storage_path('app/'.Storage::files('public/shirtImgs')[$key]));
+                        break;
+                    }
+                    
                     $title = $newFile->getFilename();
                     $size = $newFile->getSize();
                     $mimetype = $newFile->getMimeType();
                     $mime = $newFile->extension();
-                    $filePathName = 'public/'.$category->slug.'/';
+                    $filePathName = 'public/products/';
 
                     Storage::putFileAs($filePathName, $newFile, $title);
 
@@ -1012,16 +1409,7 @@ class DatabaseSeeder extends Seeder
             }
         }
         
-        $houses = [
-
-        ];
-
-        // if(count($houses) == count($houseImgs)) {
-        //     foreach ($houses as $key => $each) {
-        //         
-        //     }
-        // }
-        
+            
         $chairs = [
             [
                 'user_id' => 1,

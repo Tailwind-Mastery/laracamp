@@ -2,62 +2,17 @@
 @section('main')
 <main class="p-5 flex flex-col gap-10">
 
-<section class="flex gap-5 items-center py-10 md:py-0">
-
-    <aside class="flex flex-col gap-5 md:w-1/2 md:items-start items-center lg:pl-10">
-        <h1 class="text-5xl font-bold text-center md:text-left">
-            Focus what matters
-        </h1>
-        <p class="text-slate-500 md:w-4/5 text-center md:text-left">
-            Best buyer experience is neccessary for a store to grow healthy with wealth.
-        </p>
-
-        <a href="{{route('productPage')}}" class="mt-10 px-5 py-3 font-medium text-white bg-black rounded">
-            Shop Productivity
-        </a>
-    </aside>
-
-    <img src="{{asset('storage/images/web/shop-p.jpg')}}" class="w-1/2 object-cover h-[40rem] rounded-lg hidden md:block" alt="Shop Productive">
-
-</section>
+<x-layout.heading-screen url="{{route('storePage')}}" title="Focus what matters, Shop what you like, Fun you deserve" description="Best buyer experience is neccessary for a store to grow healthy with wealth" image="{{asset('storage/images/web/shop-p.jpg')}}" btnText="Shop Productivity"/>
 
 <x-store.trending />
 
 <x-store.reviews />
 
-<x-store.category />
-
-<section class="flex flex-col py-20 gap-5 items-center">
-
-    <h1 class="text-5xl font-bold text-center">
-        Level up your Game
-    </h1>
-    <p class="text-slate-500 md:w-4/5 text-center">
-        Make your life beautiful and organized. Post a picture to social media and watch it get more likes than life-changing announcements. Reflect on the shallow nature of existence. At least you have a really nice desk setup.
-    </p>
-
-    <a href="#" class="mt-10 px-5 py-3 font-medium text-white bg-black rounded">
-        Shop Workspace
-    </a>
-
-</section>
+<x-layout.heading-screen url="{{route('storePage')}}" title="Level up your Game with amazing designers Choices" description="Make your life beautiful and organized. Post a picture to social media and watch it get more likes than life-changing announcements. Reflect on the shallow nature of existence" image="{{asset('storage/images/web/level-up.jpg')}}" btnText="Shop Workspace"/>
 
 <x-store.collection />
 
-<section class="flex flex-col py-20 gap-5 items-center">
-
-    <h1 class="text-5xl font-bold text-center">
-        Simple & Productive
-    </h1>
-    <p class="text-slate-500 md:w-4/5 text-center">
-        Endless tasks, limited hours, a single piece of paper. Not really a haiku, but we're doing our best here. No kanban boards, burndown charts, or tangled flowcharts with our Focus system. Just the undeniable urge to fill empty circles.
-    </p>
-
-    <a href="#" class="mt-10 px-5 py-3 font-medium text-white bg-black rounded">
-        Shop Focus
-    </a>
-
-</section>
+<x-layout.heading-screen url="{{route('storePage')}}" title="Simple & Productive Collections to boost your lifestyle" description="Endless tasks, limited hours, a single piece of paper. Not really a haiku, but we're doing our best here. No kanban boards, burndown charts, or tangled flowcharts with our Focus system" image="{{asset('storage/images/web/shop-focus.jpg')}}" btnText="Shop Focus"/>
 
 <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
     
@@ -139,20 +94,8 @@
         
 </section>
 
-<section class="flex flex-col py-20 gap-5 items-center">
+<x-layout.heading-screen url="{{route('storePage')}}" title="Long Term Thinking to provide better results" description="EWe're committed to responsible, sustainable, and ethical manufacturing. Our small-scale approach allows us to focus on quality and reduce our impact" image="{{asset('storage/images/web/our-story.jpg')}}" btnText="Read our story"/>
 
-    <h1 class="text-5xl font-bold text-center">
-        Long Term Thinking
-    </h1>
-    <p class="text-slate-500 md:w-4/5 text-center">
-        We're committed to responsible, sustainable, and ethical manufacturing. Our small-scale approach allows us to focus on quality and reduce our impact. We're doing our best to delay the inevitable heat-death of the universe.
-    </p>
-
-    <a href="#" class="mt-10 px-5 py-3 font-medium text-white bg-black rounded">
-        Read our story
-    </a>
-
-</section>
 
 <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
 

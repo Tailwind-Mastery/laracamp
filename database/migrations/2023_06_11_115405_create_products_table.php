@@ -20,9 +20,9 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class);
             $table->foreignIdFor(Category::class);
-            $table->foreignIdFor(State::class);
-            $table->foreignIdFor(Country::class);
-            $table->foreignIdFor(City::class);
+            $table->foreignIdFor(State::class)->nullable();
+            $table->foreignIdFor(Country::class)->nullable();
+            $table->foreignIdFor(City::class)->nullable();
             $table->string('title')->unique();
             $table->string('slug')->unique();
             $table->bigInteger('price');

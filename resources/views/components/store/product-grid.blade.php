@@ -1,4 +1,4 @@
-<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-10">
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
 @foreach($products as $each)
 <article class="">
@@ -10,10 +10,10 @@
         <div class="flex flex-col items-center gap-1 p-5 transition duration-150 ease-in-out hover:bg-slate-50 rounded-lg">
             
             <p class="text-sm">
-                {{$category->title}}
+                {{$each->category->title}}
             </p>
 
-            <a href="{{--route('showCategory', ['slug' => $category->slug])--}}">
+            <a href="{{route('showProduct', ['categorySlug'=> $each->category->slug, 'productSlug' => $each->slug]) }}">
                 <div class="flex items-center gap-2">
                     <p class="text-lg font-medium">
                         {{$each->title}}

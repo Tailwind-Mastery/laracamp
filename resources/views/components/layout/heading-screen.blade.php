@@ -10,7 +10,7 @@
             {{$description}}
         </p>
 
-        <div class="flex gap-5 items-center lg:text-lg">
+        <div class="flex flex-col md:flex-row gap-5 items-center lg:text-lg">
 
             <a href="{{$url}}" class="bg-black text-white font-medium px-4 py-2 rounded">
                 {{$btnText}}

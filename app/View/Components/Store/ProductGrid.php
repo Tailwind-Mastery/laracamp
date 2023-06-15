@@ -13,8 +13,6 @@ class ProductGrid extends Component
      */
     public function __construct(
         public $products,
-        public $slug,
-        public $category,
     )
     {
         //

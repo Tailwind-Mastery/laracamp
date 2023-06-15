@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -9,9 +10,18 @@ use Illuminate\Support\Facades\Validator;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function show($categorySlug, $productSlug)
     {
-        return view('product.index');
+        
+        $product = Product::where('slug', $productSlug)->first()->load(['image', 'category']);
+        
+        $allProducts = Category::where('slug', $categorySlug)->first()->load('products.image');
+        
+        return view('product.show', [
+            'categorySlug' => $categorySlug,
+            'product' => $product,
+            'allProducts' => $allProducts
+        ]);
     }
     public function create()
     {

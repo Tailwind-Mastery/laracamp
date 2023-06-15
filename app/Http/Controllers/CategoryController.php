@@ -30,10 +30,9 @@ class CategoryController extends Controller
         $products = Product::where([
             ['category_id',$category->id],
             ['title', 'like', "%$search%"]
-        ])->get()->load('image');
+        ])->get()->load(['image', 'category']);
 
         return view('category.show', [
-            'slug' => $slug,
             'category' => $category,
             'products' => $products,
             'products_count' => $products->count(),

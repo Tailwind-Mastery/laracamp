@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
+use App\Models\Design;
 use App\Models\Image;
 use App\Models\Product;
 use App\Models\State;
@@ -25,8 +26,10 @@ class DatabaseSeeder extends Seeder
         Storage::deleteDirectory('public/users');
         Storage::deleteDirectory('public/category');
         Storage::deleteDirectory('public/products');
+        Storage::deleteDirectory('public/collection');
         $userImgs = Storage::files('public/userImgs');
         $catImgs = Storage::files('public/catImgs');
+        $collectionImgs = Storage::files('public/collectionImgs');
        
 
         $regions = [
@@ -805,6 +808,7 @@ class DatabaseSeeder extends Seeder
                     [
                         'title' => 'Shady Air Pods White',
                         'slug' => 'shady-air-pods-white',
+                        'featured' => true,
                         'price' => 499,
                         'user_id' => 7,
                     ],
@@ -834,28 +838,28 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Travel with style through life',
                 'products' => [
                     [
-                        'title' => 'Maiten Classy Green',
-                        'slug' => 'maiten-classy-green',
-                        'price' => 599,
-                        'user_id' => 1,
-                    ],
-                    [
                         'title' => 'RX Nomatic Black',
                         'slug' => 'rx-nomatic-black',
                         'price' => 899,
                         'user_id' => 2,
                     ],
                     [
-                        'title' => 'Classic Blue Look',
-                        'slug' => 'classic-blue-look',
-                        'price' => 299,
-                        'user_id' => 3,
+                        'title' => 'Maiten Classy Green',
+                        'slug' => 'maiten-classy-green',
+                        'price' => 599,
+                        'user_id' => 1,
                     ],
                     [
                         'title' => 'HXL Leather Brown',
                         'slug' => 'hxl-leather-brown',
                         'price' => 499,
                         'user_id' => 4,
+                    ],
+                    [
+                        'title' => 'Classic Blue Look',
+                        'slug' => 'classic-blue-look',
+                        'price' => 299,
+                        'user_id' => 3,
                     ],
                     [
                         'title' => 'Haupes Shady Green',
@@ -890,6 +894,7 @@ class DatabaseSeeder extends Seeder
                     [
                         'title' => 'Vinta Mountain Green',
                         'slug' => 'vinta-mountain-green',
+                        'featured' => true,
                         'price' => 10999,
                         'user_id' => 10,
                     ],
@@ -921,6 +926,7 @@ class DatabaseSeeder extends Seeder
                     [
                         'title' => 'Stallion Deck Peach Boat',
                         'slug' => 'stallion-deck-peach-boat',
+                        'featured' => true,
                         'price' => 999,
                         'user_id' => 4,
                     ],
@@ -967,7 +973,67 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'cars',
                 'description' => 'Cars combined with fuel and power',
                 'products' => [
-                    
+                    [
+                        'title' => 'Porche Amazing Black Car',
+                        'slug' => 'porche-amazing-black-car',
+                        'price' => 1099,
+                        'user_id' => 1,
+                    ],
+                    [
+                        'title' => 'Audi Forest Brown Car',
+                        'slug' => 'audi-forest-brown-car',
+                        'price' => 10099,
+                        'user_id' => 2,
+                    ],
+                    [
+                        'title' => 'Ford Mustang Blue Car',
+                        'slug' => 'ford-mustand-blue-car',
+                        'price' => 2099,
+                        'user_id' => 3,
+                    ],
+                    [
+                        'title' => 'Mercedes Benz Red Car',
+                        'slug' => 'mercedes-benz-red-car',
+                        'price' => 9099,
+                        'user_id' => 4,
+                    ],
+                    [
+                        'title' => 'Ford GT Green Car',
+                        'slug' => 'ford-gt-green-car',
+                        'price' => 3099,
+                        'user_id' => 5,
+                    ],
+                    [
+                        'title' => 'Ferrari Amazing Orange Car',
+                        'slug' => 'ferrari-amazing-orange-car',
+                        'price' => 8099,
+                        'user_id' => 6,
+                    ],
+                    [
+                        'title' => 'Mitsubishi Sports Red Car',
+                        'slug' => 'mitsubishi-sports-red-car',
+                        'price' => 4099,
+                        'user_id' => 7,
+                    ],
+                    [
+                        'title' => 'BMW Shining Black Car',
+                        'slug' => 'bmw-shining-black-car',
+                        'price' => 7099,
+                        'user_id' => 8,
+                    ],
+                    [
+                        'title' => 'Acura Racing Silver Car',
+                        'slug' => 'acura-racing-silver-car',
+                        'price' => 5099,
+                        'user_id' => 9,
+                    ],
+                    [
+                        'title' => 'Audi Snow White Car',
+                        'slug' => 'audi-snow-white-car',
+                        'featured' => true,
+                        'price' => 6099,
+                        'user_id' => 10,
+                    ],
                 ],
             ], 
             [
@@ -1008,6 +1074,7 @@ class DatabaseSeeder extends Seeder
                     [
                         'title' => 'Stylish Kings White Chiar',
                         'slug' => 'stylish-kings-white-chair',
+                        'featured' => true,
                         'price' => 899,
                         'user_id' => 6,
                     ],
@@ -1081,6 +1148,7 @@ class DatabaseSeeder extends Seeder
                     [
                         'title' => 'Performance Rider Black Cycle',
                         'slug' => 'performance-rider-black-cycle',
+                        'featured' => true,
                         'price' => 499,
                         'user_id' => 7,
                     ],
@@ -1109,8 +1177,68 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'glasses',
                 'description' => 'Have a look that astounds others',
                 'products' => [
-                    
-                ],
+                    [
+                        'title' => 'Rusty Beach Glasses',
+                        'slug' => 'rusty-beach-glasses',
+                        'price' => 199,
+                        'user_id' => 1,
+                    ],
+                    [
+                        'title' => 'Elegant Black Glasses',
+                        'slug' => 'elegant-black-glasses',
+                        'price' => 1099,
+                        'user_id' => 2,
+                    ],
+                    [
+                        'title' => 'Beautiful Peach Glasses',
+                        'slug' => 'beautiful-peach-glasses',
+                        'price' => 299,
+                        'user_id' => 3,
+                    ],
+                    [
+                        'title' => 'Abstract Pair Glasses',
+                        'slug' => 'abstract-pair-glasses',
+                        'price' => 999,
+                        'user_id' => 4,
+                    ],
+                    [
+                        'title' => 'Hybrid Purple Glasses',
+                        'slug' => 'hybrid-purple-glasses',
+                        'price' => 399,
+                        'user_id' => 5,
+                    ],
+                    [
+                        'title' => 'Rayfan Black Glasses',
+                        'slug' => 'rayfan-black-glasses',
+                        'price' => 899,
+                        'user_id' => 6,
+                    ],
+                    [
+                        'title' => 'Classic Reading Glasses',
+                        'slug' => 'classic-reading-glasses',
+                        'price' => 499,
+                        'user_id' => 7,
+                    ],
+                    [
+                        'title' => 'Round Red Glasses',
+                        'slug' => 'round-red-glasses',
+                        'price' => 799,
+                        'user_id' => 8,
+                    ],
+                    [
+                        'title' => 'Tiger Pattern Glasses',
+                        'slug' => 'tiger-pattern-glasses',
+                        'price' => 599,
+                        'user_id' => 9,
+                    ],
+                    [
+                        'title' => 'Unique White Glasses',
+                        'slug' => 'unique-white-glasses',
+                        'featured' => true,
+                        'price' => 699,
+                        'user_id' => 10,
+                    ],
+                ]
             ], 
             [
                 'title' => 'Houses',
@@ -1178,7 +1306,8 @@ class DatabaseSeeder extends Seeder
                         'user_id' => 7,
                         'state_id' => 2,
                         'country_id' => 22,
-                        'city_id' => 221
+                        'city_id' => 221,
+                        'featured' => true,
                     ],
                     [
                         'title' => 'clay Rocks R-P #4509',
@@ -1214,7 +1343,67 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'jwellery',
                 'description' => 'The power of elegant beauty',
                 'products' => [
-                    
+                    [
+                        'title' => 'Blue Stone Silver Ring Jwell',
+                        'slug' => 'blue-stone-silver-ring-jwell',
+                        'price' => 199,
+                        'user_id' => 1,
+                    ],
+                    [
+                        'title' => 'Beautiful Golden Chain Jwell',
+                        'slug' => 'beautiful-golden-chain-jwell',
+                        'price' => 1099,
+                        'user_id' => 2,
+                    ],
+                    [
+                        'title' => 'Elegant Gold Ear Jwell',
+                        'slug' => 'elegant-gold-ear-jwell',
+                        'featured' => true,
+                        'price' => 299,
+                        'user_id' => 3,
+                    ],
+                    [
+                        'title' => 'Design Gold Bracelet Jwell',
+                        'slug' => 'design-gold-bracelet-jwell',
+                        'price' => 999,
+                        'user_id' => 4,
+                    ],
+                    [
+                        'title' => 'Heart Golden Black Jwell',
+                        'slug' => 'heart-golden-black-jwell',
+                        'price' => 399,
+                        'user_id' => 5,
+                    ],
+                    [
+                        'title' => 'Unique Gold Pair Jwell',
+                        'slug' => 'unique-gold-pair-jwell',
+                        'price' => 899,
+                        'user_id' => 6,
+                    ],
+                    [
+                        'title' => 'Peach Stone Carved Ring Jwell',
+                        'slug' => 'peach-stone-carved-ring-jwell',
+                        'price' => 499,
+                        'user_id' => 7,
+                    ],
+                    [
+                        'title' => 'Elegant Sapphire Gold Ring Jwell',
+                        'slug' => 'elegant-sapphire-gold-ring-jwell',
+                        'price' => 799,
+                        'user_id' => 8,
+                    ],
+                    [
+                        'title' => 'Designer Silver Cut Jwell',
+                        'slug' => 'designer-silver-cut-jwell',
+                        'price' => 599,
+                        'user_id' => 9,
+                    ],
+                    [
+                        'title' => 'Life Silver beauty Jwell',
+                        'slug' => 'life-silver-beauty-jwell',
+                        'price' => 699,
+                        'user_id' => 10,
+                    ],
                 ],
             ], 
             [
@@ -1222,15 +1411,203 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'mobiles',
                 'description' => 'Always have the best option available',
                 'products' => [
-                    
-                ],
+                    [
+                        'title' => 'Ultra Edge Black Mobile',
+                        'slug' => 'ultra-edge-black-mobile',
+                        'price' => 199,
+                        'user_id' => 1,
+                    ],
+                    [
+                        'title' => 'Profound Smart Blue Mobile',
+                        'slug' => 'profound-smart-blue-mobile',
+                        'price' => 1099,
+                        'user_id' => 2,
+                    ],
+                    [
+                        'title' => 'Huawei Daisy Blue Mobile',
+                        'slug' => 'huawei-daisy-blue-mobile',
+                        'price' => 299,
+                        'user_id' => 3,
+                    ],
+                    [
+                        'title' => 'Huawei Shiny Blue Mobile',
+                        'slug' => 'huawei-shiny-blue-mobile',
+                        'price' => 999,
+                        'user_id' => 4,
+                    ],
+                    [
+                        'title' => 'Elegant Pair Peach Mobile',
+                        'slug' => 'elegant-pair-peach-mobile',
+                        'price' => 399,
+                        'user_id' => 5,
+                    ],
+                    [
+                        'title' => 'Aesthatic Purple Mobile',
+                        'slug' => 'aesthatic-purple-mobile',
+                        'price' => 899,
+                        'user_id' => 6,
+                    ],
+                    [
+                        'title' => 'Hybrid Red Pair Mobile',
+                        'slug' => 'hybrid-red-pair-mobile',
+                        'price' => 499,
+                        'user_id' => 7,
+                    ],
+                    [
+                        'title' => 'Velvet Leather Sevure Mobile',
+                        'slug' => 'velvet-leather-secure-mobile',
+                        'price' => 799,
+                        'user_id' => 8,
+                    ],
+                    [
+                        'title' => 'Air Bounce White Mobile',
+                        'slug' => 'air-bounce-white-mobile',
+                        'price' => 599,
+                        'user_id' => 9,
+                    ],
+                    [
+                        'title' => 'High Definition Lens Mobile',
+                        'slug' => 'high-definition-lens-mobile',
+                        'featured' => true,
+                        'price' => 699,
+                        'user_id' => 10,
+                    ],
+                ]
             ], 
             [
                 'title' => 'Paintings',
                 'slug' => 'paintings',
                 'description' => 'Emotions of an artists played for you',
                 'products' => [
-                    
+                    [
+                        'title' => 'Wandering Alone Painting',
+                        'slug' => 'wandering-alone-painting',
+                        'price' => 199,
+                        'user_id' => 1,
+                    ],
+                    [
+                        'title' => 'Birds Tree Painting',
+                        'slug' => 'birds-tree-painting',
+                        'price' => 1099,
+                        'user_id' => 2,
+                    ],
+                    [
+                        'title' => 'Child Playing Painting',
+                        'slug' => 'child-playing-painting',
+                        'price' => 299,
+                        'user_id' => 3,
+                    ],
+                    [
+                        'title' => 'Amazing Flowers Painting',
+                        'slug' => 'amazing-flowers-painting',
+                        'price' => 999,
+                        'user_id' => 4,
+                    ],
+                    [
+                        'title' => 'Farm Sunrise Painting',
+                        'slug' => 'farm-sunrise-painting',
+                        'price' => 399,
+                        'user_id' => 5,
+                    ],
+                    [
+                        'title' => 'Mountain Village Painting',
+                        'slug' => 'mountain-village-painting',
+                        'price' => 899,
+                        'user_id' => 6,
+                    ],
+                    [
+                        'title' => 'Family Picnic Painting',
+                        'slug' => 'family-picnic-painting',
+                        'price' => 499,
+                        'user_id' => 7,
+                    ],
+                    [
+                        'title' => 'Sheep Group Painting',
+                        'slug' => 'sheep-group-painting',
+                        'price' => 799,
+                        'user_id' => 8,
+                    ],
+                    [
+                        'title' => 'Busy Town Painting',
+                        'slug' => 'busy-town-painting',
+                        'featured' => true,
+                        'price' => 599,
+                        'user_id' => 9,
+                    ],
+                    [
+                        'title' => 'Beautiful Vase Painting',
+                        'slug' => 'beautiful-vase-painting',
+                        'price' => 699,
+                        'user_id' => 10,
+                    ],
+                ],
+            ], 
+            [
+                'title' => 'Perfumes',
+                'slug' => 'perfumes',
+                'description' => 'Emotions of an artists played for you',
+                'products' => [
+                    [
+                        'title' => 'Aqua Allegoria Perfume',
+                        'slug' => 'aqua-allegoria-perfume',
+                        'price' => 199,
+                        'user_id' => 1,
+                    ],
+                    [
+                        'title' => 'Calvin Klein BE Perfume',
+                        'slug' => 'calvin-klein-be-perfume',
+                        'price' => 1099,
+                        'user_id' => 2,
+                    ],
+                    [
+                        'title' => 'Calvin Klein ONE Perfume',
+                        'slug' => 'calvin-klein-one-perfume',
+                        'price' => 299,
+                        'user_id' => 3,
+                    ],
+                    [
+                        'title' => 'Chanel Coco Noir Perfume',
+                        'slug' => 'chanel-coco-noir-perfume',
+                        'price' => 999,
+                        'user_id' => 4,
+                    ],
+                    [
+                        'title' => 'Red Diamond Perfume',
+                        'slug' => 'red-diamond-perfume',
+                        'price' => 399,
+                        'user_id' => 5,
+                    ],
+                    [
+                        'title' => 'Versace Eros Perfume',
+                        'slug' => 'versace-eros-perfume',
+                        'price' => 899,
+                        'user_id' => 6,
+                    ],
+                    [
+                        'title' => 'Prade Milang Perfume',
+                        'slug' => 'prada-milang-perfume',
+                        'price' => 499,
+                        'user_id' => 7,
+                    ],
+                    [
+                        'title' => 'Black Opium Perfume',
+                        'slug' => 'black-opium-perfume',
+                        'price' => 799,
+                        'user_id' => 8,
+                    ],
+                    [
+                        'title' => 'Euphoria Avenue Perfume',
+                        'slug' => 'euphoria-avenue-perfume',
+                        'featured' => true,
+                        'price' => 599,
+                        'user_id' => 9,
+                    ],
+                    [
+                        'title' => 'Jaguar Red Perfume',
+                        'slug' => 'jaguar-rede-perfume',
+                        'price' => 699,
+                        'user_id' => 10,
+                    ],
                 ],
             ], 
             [
@@ -1238,7 +1615,67 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'plants',
                 'description' => 'Breathe well and have a healthy habit',
                 'products' => [
-                    
+                    [
+                        'title' => 'Forest Flower Plant',
+                        'slug' => 'frest-flower-plant',
+                        'featured' => true,
+                        'price' => 199,
+                        'user_id' => 1,
+                    ],
+                    [
+                        'title' => 'Blue Vase Grass Plant',
+                        'slug' => 'blue-vase-grass-plant',
+                        'price' => 1099,
+                        'user_id' => 2,
+                    ],
+                    [
+                        'title' => 'Red Flower Cactus Plant',
+                        'slug' => 'red-flower-cactus-plant',
+                        'price' => 299,
+                        'user_id' => 3,
+                    ],
+                    [
+                        'title' => 'Pink Pot Leafy Plant',
+                        'slug' => 'pink-pot-leafy-plant',
+                        'price' => 999,
+                        'user_id' => 4,
+                    ],
+                    [
+                        'title' => 'Table Pots Flower Plant',
+                        'slug' => 'table-pots-flower-plant',
+                        'price' => 399,
+                        'user_id' => 5,
+                    ],
+                    [
+                        'title' => 'Kettle Vase Red Plant',
+                        'slug' => 'kettle-vase-red-plant',
+                        'price' => 899,
+                        'user_id' => 6,
+                    ],
+                    [
+                        'title' => 'Shadow Baby Leaves Plant',
+                        'slug' => 'shadow-baby-leaves-plant',
+                        'price' => 499,
+                        'user_id' => 7,
+                    ],
+                    [
+                        'title' => 'Long Leaves Pot Plant',
+                        'slug' => 'long-leaves-pot-plant',
+                        'price' => 799,
+                        'user_id' => 8,
+                    ],
+                    [
+                        'title' => 'Beauty Leaves Vase Plant',
+                        'slug' => 'beauty-leaves-vase-plant',
+                        'price' => 599,
+                        'user_id' => 9,
+                    ],
+                    [
+                        'title' => 'Colored Pots Leaves Plant',
+                        'slug' => 'colored-pots-leaves-plant',
+                        'price' => 699,
+                        'user_id' => 10,
+                    ],
                 ],
             ], 
             [
@@ -1291,6 +1728,7 @@ class DatabaseSeeder extends Seeder
                     [
                         'title' => 'Decent Design Shirt',
                         'slug' => 'decent-design-shirt',
+                        'featured' => true,
                         'price' => 799,
                         'user_id' => 8,
                     ],
@@ -1313,7 +1751,67 @@ class DatabaseSeeder extends Seeder
                 'slug' => 'toys',
                 'description' => 'Have great fun and adventures playing',
                 'products' => [
-                    
+                    [
+                        'title' => 'Batman Car Toy',
+                        'slug' => 'batman-car-toy',
+                        'price' => 199,
+                        'user_id' => 1,
+                    ],
+                    [
+                        'title' => 'Foam Bunny Toy',
+                        'slug' => 'foam-bunny-toy',
+                        'price' => 1099,
+                        'user_id' => 2,
+                    ],
+                    [
+                        'title' => 'Vroom Car Toy',
+                        'slug' => 'vroom-car-toy',
+                        'price' => 299,
+                        'user_id' => 3,
+                    ],
+                    [
+                        'title' => 'Garry Car Toy',
+                        'slug' => 'garry-car-toy',
+                        'featured' => true,
+                        'price' => 999,
+                        'user_id' => 4,
+                    ],
+                    [
+                        'title' => 'Fun Group Toy',
+                        'slug' => 'fun-group-toy',
+                        'price' => 399,
+                        'user_id' => 5,
+                    ],
+                    [
+                        'title' => 'Transformer Robot Toy',
+                        'slug' => 'transformer-robot-toy',
+                        'price' => 899,
+                        'user_id' => 6,
+                    ],
+                    [
+                        'title' => 'Standing Happy Toy',
+                        'slug' => 'standing-happy-toy',
+                        'price' => 499,
+                        'user_id' => 7,
+                    ],
+                    [
+                        'title' => 'Star Wars Toy',
+                        'slug' => 'star-wars-toy',
+                        'price' => 799,
+                        'user_id' => 8,
+                    ],
+                    [
+                        'title' => 'Teddy Bear Toy',
+                        'slug' => 'teddy-bear-toy',
+                        'price' => 599,
+                        'user_id' => 9,
+                    ],
+                    [
+                        'title' => 'Vroom Truck Toy',
+                        'slug' => 'croom-truck-toy',
+                        'price' => 699,
+                        'user_id' => 10,
+                    ],
                 ],
             ]
         ];
@@ -1356,6 +1854,7 @@ class DatabaseSeeder extends Seeder
                     $product->title = $eachProd['title'];
                     $product->slug = $eachProd['slug'];
                     $product->price = $eachProd['price'];
+                    $product->featured = $eachProd['featured'] ?? false;
                     $product->save();
 
                     // Image Upload
@@ -1372,19 +1871,40 @@ class DatabaseSeeder extends Seeder
                             $newFile = new File(storage_path('app/'.Storage::files('public/boatImgs')[$key]));
                         break;
                         case 'cars':
-                            $newFile = new File(storage_path('app/'.Storage::files('public/carImages')[$key]));
+                            $newFile = new File(storage_path('app/'.Storage::files('public/carImgs')[$key]));
                         break;
                         case 'chairs':
                             $newFile = new File(storage_path('app/'.Storage::files('public/chairImgs')[$key]));
                         break;
                         case 'cycles':
-                            $newFile = new File(storage_path('app/'.Storage::files('public/chairImgs')[$key]));
+                            $newFile = new File(storage_path('app/'.Storage::files('public/cycleImgs')[$key]));
+                        break;
+                        case 'glasses':
+                            $newFile = new File(storage_path('app/'.Storage::files('public/glassImgs')[$key]));
                         break;
                         case 'houses':
                             $newFile = new File(storage_path('app/'.Storage::files('public/houseImgs')[$key]));
                         break;
+                        case 'jwellery':
+                            $newFile = new File(storage_path('app/'.Storage::files('public/jwelleryImgs')[$key]));
+                        break;
+                        case 'mobiles':
+                            $newFile = new File(storage_path('app/'.Storage::files('public/mobImgs')[$key]));
+                        break;
+                        case 'paintings':
+                            $newFile = new File(storage_path('app/'.Storage::files('public/paintImgs')[$key]));
+                        break;
+                        case 'perfumes':
+                            $newFile = new File(storage_path('app/'.Storage::files('public/perfumeImgs')[$key]));
+                        break;
+                        case 'plants':
+                            $newFile = new File(storage_path('app/'.Storage::files('public/plantImgs')[$key]));
+                        break;
                         case 'shirts':
                             $newFile = new File(storage_path('app/'.Storage::files('public/shirtImgs')[$key]));
+                        break;
+                        case 'toys':
+                            $newFile = new File(storage_path('app/'.Storage::files('public/toyImgs')[$key]));
                         break;
                     }
                     
@@ -1408,18 +1928,98 @@ class DatabaseSeeder extends Seeder
                 
             }
         }
-        
-            
-        $chairs = [
+
+        $collection = [
             [
-                'user_id' => 1,
-                'category_id' => 1,
-                'title' => 'Baby Green Chair',
-                'slug' => 'baby-green-chair',
-                'price' => 299,
-                'featured' => true,
-            ], 
+                'title' => 'New Arrivals',
+                'slug' => 'new-arrivals',
+                'description' => 'Boost latest products and discounts',
+            ],
+            [
+                'title' => 'Season Flavour',
+                'slug' => 'season-flavour',
+                'description' => 'Enjoy all seasons with their fun',
+            ],
+            [
+                'title' => 'Arts And Design',
+                'slug' => 'arts-and-design',
+                'description' => 'Make great intresting ideas',
+            ],
+            [
+                'title' => 'Beautiful Walls',
+                'slug' => 'beautiful-walls',
+                'description' => 'Beauty and flawless design',
+            ],
+            [
+                'title' => 'Wind And Sea',
+                'slug' => 'Wind-and-sea',
+                'description' => 'Amazingly shiny cars and boats',
+            ],
+            [
+                'title' => 'Chair And Sofa',
+                'slug' => 'chair-and-sofa',
+                'description' => 'Furniture for each corner',
+            ],
+            [
+                'title' => 'Upgrade Your Desk',
+                'slug' => 'upgrade-your-desk',
+                'description' => 'Help yourself to productivity',
+            ],
+            [
+                'title' => 'Lala Land',
+                'slug' => 'lala-land',
+                'description' => 'Interactive and Educative fun',
+            ],
+            [
+                'title' => 'Love Aroma',
+                'slug' => 'Love Aroma',
+                'description' => 'Attraction and love for you',
+            ],
+            [
+                'title' => 'Grooms Day',
+                'slug' => 'grooms-day',
+                'description' => 'Expensive Tux Tie Watch Shoes',
+            ],
+            [
+                'title' => 'Ocean Master',
+                'slug' => 'ocean-master',
+                'description' => 'Sunshine boat docked at sea',
+            ],
+            [
+                'title' => 'Shiny Deck',
+                'slug' => 'shiny-deck',
+                'description' => 'Elegantly polished interior',
+            ],
         ];
 
+        if(count($collection) == count($collectionImgs)) {
+            foreach ($collection as $key => $each) {
+                $design = new Design();
+                $design->title = $each['title'];
+                $design->slug = $each['slug'];
+                $design->description = $each['description'];
+                $design->save();
+
+                // Image Upload
+                $newFile = new File(storage_path('app/'.$collectionImgs[$key]));
+                $title = $newFile->getFilename();
+                $size = $newFile->getSize();
+                $mimetype = $newFile->getMimeType();
+                $mime = $newFile->extension();
+
+                Storage::putFileAs('public/collection/', $newFile, $title);
+
+                // Image
+                $image = new Image();
+                $image->title = $title;
+                $image->design_id = $design->id;
+                $image->size = $size;
+                $image->mimetype = $mimetype;
+                $image->mime = $mime;
+                $image->save();
+
+            }
+        }
+        
     }
 }

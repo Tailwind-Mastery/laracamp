@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Category;
+use App\Models\Design;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
@@ -23,6 +24,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class)->nullable();
             $table->foreignIdFor(Category::class)->nullable();
             $table->foreignIdFor(Product::class)->nullable();
+            $table->foreignIdFor(Design::class)->nullable();
             $table->timestamps();
         });
     }

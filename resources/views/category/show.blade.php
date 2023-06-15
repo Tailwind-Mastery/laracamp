@@ -4,15 +4,22 @@
 
 <section class="flex flex-col py-20 gap-5 items-center">
 
+    <div class="flex gap-3 text-slate-500">
+        <a href="{{route('categoryPage')}}">Categories</a>
+        <p>/</p>
+        <p class="font-medium">{{$category->title}}</p>
+    </div>
+
     <h1 class="text-5xl font-bold text-center">
-        {{ucfirst($slug)}}
+        {{$category->title}}
     </h1>
     <p class="text-slate-500 md:w-4/5 text-center">
-        Explore multiple products, browse through our collections of {{$slug}} and search for the best you like. 
+        Explore multiple products, browse through our collections of {{$category->title}} and search for the best you like. 
     </p>
     <p class="text-lg font-medium">
         Total Products {{$products_count}}
     </p>
+
 
     <form method="get" class="flex mt-10 rounded shadow overflow-hidden md:w-1/2 divide-x">
         <div class="flex gap-1 p-3 w-full">
@@ -29,7 +36,7 @@
 
 </section>
 
-<x-store.product-grid :products="$products" :slug="$slug" :category="$category"/>
+<x-store.product-grid :products="$products"/>
 
 </main>
 @endsection

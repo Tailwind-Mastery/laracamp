@@ -31,7 +31,7 @@
                     }
                 }">
 
-                <img src="{{asset('storage/products/'.$product->image->title)}}" alt="{{$product->title}}" class="object-cover w-full h-96 md:h-[40rem] lg:h-[50rem] xl:h-[60rem] rounded" x-ref="myImage">
+                <img src="{{asset('storage/products/'.$product->image->title)}}" alt="{{$product->title}}" class="object-cover w-full lg:w-3/4 h-96 md:h-[40rem] lg:h-[50rem] xl:h-[60rem] rounded" x-ref="myImage">
 
                 <div class="overflow-auto scrollbar w-full lg:w-72 lg:h-[50rem] xl:h-[60rem]">
 

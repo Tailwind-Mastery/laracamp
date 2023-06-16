@@ -10,6 +10,7 @@ use App\Models\Country;
 use App\Models\Design;
 use App\Models\Image;
 use App\Models\Product;
+use App\Models\Review;
 use App\Models\State;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -1816,6 +1817,19 @@ class DatabaseSeeder extends Seeder
             ]
         ];
 
+        $reviews = [
+            "I got a pair of boots from Laracamp and I am very satisfied. They are high-quality and worth the money",
+            "Laracamp offered free shipping at that price so that is a plus!",
+            "I recently purchased this from Laracamp, and I couldnot be happier with my online shopping experience",
+            "Their website was user-friendly, making it easy to find the perfect item",
+            "The checkout process was smooth, and I received my order promptly. My product arrived in excellent condition, exactly as described on their website",
+            "I am thrilled with the quality and will definitely shop at Laracamp again in the future. Highly recommended!",
+            "I ordered my product from Laracamp last week, and I was amazed at how quickly it arrived. The packaging was secure, ensuring the item was undamaged",
+            "The customer service was exceptional, as they kept me updated throughout the entire process",
+            "I had a question about the product, and their support team responded promptly and professionally",
+            "Overall, my experience with Laracamp was outstanding, and I cannot wait for my next purchase.",
+        ];
+        
         if(count($categories) == count($catImgs)) {
             foreach ($categories as $key => $each) {
                 $category = new Category();
@@ -1924,6 +1938,16 @@ class DatabaseSeeder extends Seeder
                     $image->mimetype = $mimetype;
                     $image->mime = $mime;
                     $image->save();
+
+                    // Review 
+                    for($i=1; $i< 11; $i++) {
+                        if($eachProd['user_id'] == $i){continue;}
+                        $review = new Review();
+                        $review->user_id = $i;
+                        $review->product_id = $product->id;
+                        $review->review = $reviews[$i-1];
+                        $review->save();
+                    }
                 }
                 
             }

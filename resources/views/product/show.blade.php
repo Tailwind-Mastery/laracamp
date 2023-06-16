@@ -48,6 +48,27 @@
             
             <div class="flex flex-col divide-y md:w-3/4 border rounded-lg" x-data="{open:false, toggle(){this.open=!this.open}}">
                 <div class="flex justify-between gap-3 p-3" @click="toggle()">
+                    <p class="font-medium">Owner</p>
+                    <img src="{{asset('storage/images/web/info.png')}}" alt="Info Icon" class="w-7">
+                </div>
+                <div class="flex flex-col md:flex-row gap-5 md:items-center justify-center p-3" x-transition x-show="!open">
+                    <div class="flex flex-col gap-1">
+                        <h2 class="text-lg font-medium mt-1">
+                            {{$product->user->name}}
+                        </h2>
+                        <p class="text-slate-500">
+                            I hope you like my product
+                        </p>
+                    </div>
+
+                    <img src="{{asset('storage/users/'.$product->user->image->title)}}" alt="{{$product->user->name}}" class="w-full md:w-1/2 object-cover rounded">
+                </div>
+                
+
+            </div>
+            
+            <div class="flex flex-col divide-y md:w-3/4 border rounded-lg" x-data="{open:false, toggle(){this.open=!this.open}}">
+                <div class="flex justify-between gap-3 p-3" @click="toggle()">
                     <p class="font-medium">Highlits</p>
                     <img src="{{asset('storage/images/web/info.png')}}" alt="Info Icon" class="w-7">
                 </div>
@@ -667,6 +688,135 @@
         </aside>
         
     </article>
+
+    <artile class="flex flex-col gap-10 p-5 items-center">
+
+        <aside class="flex flex-col gap-5 md:w-3/4 w-full">
+            <p class="text-xl font-medium text-center md:text-left ">
+                Customer Reviews
+            </p>
+
+            <div class="flex flex-col md:flex-row items-center gap-3">
+
+                <div class="flex items-center">
+                    @for($i=0;$i < 5; $i++)
+                    <img src="{{asset('storage/images/web/star.png')}}" alt="Star Icon" class="w-7 h-7 object-contain">
+                    @endfor
+                </div>
+
+                <p class="font-medium text-slate-500">
+                    Based on 1642 reviews
+                </p>
+                
+            </div>
+
+            <div class="flex flex-col">
+
+                <div class="flex gap-3 items-center">
+                    <p class="font-medium text-lg">5</p>
+                    <img src="{{asset('storage/images/web/star.png')}}" alt="Star Icon" class="w-7 h-7 object-contain">
+
+                    <div class="grid grid-cols-12 rounded-full w-full h-4 overflow-hidden">
+                        <div class="bg-yellow-400 col-span-10 rounded-full"></div>
+                        <div class="col-span-2"></div>
+                    </div>
+
+                    <p class="">80%</p>
+                </div>
+
+                <div class="flex gap-3 items-center">
+                    <p class="font-medium text-lg">4</p>
+                    <img src="{{asset('storage/images/web/star.png')}}" alt="Star Icon" class="w-7 h-7 object-contain">
+
+                    <div class="grid grid-cols-12 rounded-full w-full h-4 overflow-hidden">
+                        <div class="bg-yellow-400 col-span-8 rounded-full"></div>
+                        <div class="col-span-4"></div>
+                    </div>
+
+                    <p class="">60%</p>
+                </div>
+
+                <div class="flex gap-3 items-center">
+                    <p class="font-medium text-lg">3</p>
+                    <img src="{{asset('storage/images/web/star.png')}}" alt="Star Icon" class="w-7 h-7 object-contain">
+
+                    <div class="grid grid-cols-12 rounded-full w-full h-4 overflow-hidden">
+                        <div class="bg-yellow-400 col-span-6 rounded-full"></div>
+                        <div class="col-span-6"></div>
+                    </div>
+
+                    <p class="">40%</p>
+                </div>
+
+                <div class="flex gap-3 items-center">
+                    <p class="font-medium text-lg">2</p>
+                    <img src="{{asset('storage/images/web/star.png')}}" alt="Star Icon" class="w-7 h-7 object-contain">
+
+                    <div class="grid grid-cols-12 rounded-full w-full h-4 overflow-hidden">
+                        <div class="bg-yellow-400 col-span-4 rounded-full"></div>
+                        <div class="col-span-2"></div>
+                    </div>
+
+                    <p class="">20%</p>
+                </div>
+
+                <div class="flex gap-3 items-center">
+                    <p class="font-medium text-lg w-3">1</p>
+                    <img src="{{asset('storage/images/web/star.png')}}" alt="Star Icon" class="w-7 h-7 object-contain">
+
+                    <div class="grid grid-cols-12 rounded-full w-full h-4 overflow-hidden">
+                        <div class="bg-yellow-400 col-span-2 rounded-full"></div>
+                        <div class="col-span-2"></div>
+                    </div>
+
+                    <p class="">10%</p>
+                </div>
+                
+            </div>
+            
+        </aside>
+
+        <aside class="flex flex-col gap-5 md:w-3/4 w-full">
+            <div class="flex flex-col gap-1">
+                <p class="text-lg font-medium">
+                    Share your thoughts
+                </p>
+                <p class="text-slate-500">
+                    If you have used this product, share your thoughts
+                </p>
+
+                <div class="mt-3 rounded px-5 py-3 font-medium border w-fit">
+                    Write a review
+                </div>
+            </div>
+
+            @foreach($product->reviews as $each)
+            <div class="flex flex-col gap-3">
+                
+                <div class="flex items-center gap-3">
+                    <img src="{{asset('storage/users/'.$each->user->image->title)}}" alt="{{$each->user->name}}" class="w-16 h-16 object-cover rounded-full">
+
+                    <div class="flex flex-col gap-1">
+
+                        <p class="font-medium">{{$each->user->name}}</p>
+                        
+                        <div class="flex items-center">
+                            @for($i=0;$i < 5; $i++)
+                            <img src="{{asset('storage/images/web/star.png')}}" alt="Star Icon" class="w-5 h-5 object-contain">
+                            @endfor
+                        </div>
+                    </div>
+                </div>
+
+                <p class="text-slate-500 text-lg tracking-tight">
+                    {{$each->review}}
+                </p>
+            </div>
+            @endforeach
+            
+        </aside>
+
+    </artile>
     
 </section>
 @endsection

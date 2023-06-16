@@ -51,5 +51,64 @@
 
 <x-layout.heading-screen url="{{route('storePage')}}" title="Long Term Thinking to provide better results" description="EWe're committed to responsible, sustainable, and ethical manufacturing. Our small-scale approach allows us to focus on quality and reduce our impact" image="{{asset('storage/images/web/our-story.jpg')}}" btnText="Read our story"/>
     
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+
+    <article class="flex flex-col items-center gap-3">
+
+        <img src="{{asset('storage/images/web/return.png')}}" alt="Return Icon" class="w-44">
+
+        <p class="text-lg font-medium">
+            Free Returns
+        </p>
+
+        <p class="text-slate-500 text-center">
+            Not what you expected? Place it back in the parcel and attach the pre-paid postage stamp.
+        </p>
+
+    </article>
+
+    <article class="flex flex-col items-center gap-3">
+
+        <img src="{{asset('storage/images/web/calender.png')}}" alt="Calender Icon" class="w-44">
+
+        <p class="text-lg font-medium">
+            Same Day Delivery
+        </p>
+
+        <p class="text-slate-500 text-center">
+            We offer a delivery service that has never been done before. Checkout today and receive your products within hours.
+        </p>
+
+    </article>
+
+    <article class="flex flex-col items-center gap-3">
+
+        <img src="{{asset('storage/images/web/discount.png')}}" alt="Discount Icon" class="w-44">
+
+        <p class="text-lg font-medium">
+            All Year Discount
+        </p>
+
+        <p class="text-slate-500 text-center">
+            Looking for a deal? You can use the code "ALLYEAR" at checkout and get money off all year round.
+        </p>
+
+    </article>
+
+    <article class="flex flex-col items-center gap-3">
+
+        <img src="{{asset('storage/images/web/store.png')}}" alt="Store Icon" class="w-44">
+
+        <p class="text-lg font-medium">
+            Amazing Experience
+        </p>
+
+        <p class="text-slate-500 text-center">
+            We love that our customers are satisfied with our services and care about attraction from people.
+        </p>
+
+    </article>
+</section>
+
 </main>
 @endsection

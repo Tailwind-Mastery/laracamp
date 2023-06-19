@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\StoreController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::controller(HomeController::class)->group(function () {
-    Route::get('/', 'index')->name('home');
+    Route::get('/', 'index')->name('homePage');
 });
 
 Route::controller(AuthController::class)->group(function () {
@@ -46,4 +49,16 @@ Route::controller(CategoryController::class)->group(function () {
     Route::get('/category/{slug}', 'show')->name('showCategory');
     // Route::get('/category/create', 'create')->name('createCategory');
     // Route::post('/category/store', 'store')->name('storeCategory');
+});
+
+Route::controller(SearchController::class)->group(function () {
+    Route::get('/search', 'index')->name('searchPage');
+});
+
+Route::controller(CartController::class)->group(function () {
+    Route::get('/cart', 'index')->name('cartPage');
+});
+
+Route::controller(CheckoutController::class)->group(function () {
+    Route::get('/checkout', 'index')->name('checkoutPage');
 });

@@ -13,9 +13,9 @@ class ProductController extends Controller
     public function show($categorySlug, $productSlug)
     {
         
-        $product = Product::where('slug', $productSlug)->first()->load(['image', 'user', 'user.image', 'category', 'reviews', 'reviews.user', 'reviews.user.image']);
+        $product = Product::where('slug', $productSlug)->first()->load(['image', 'user', 'user.image', 'category', 'category.group', 'reviews', 'reviews.user', 'reviews.user.image']);
         
-        $allProducts = Category::where('slug', $categorySlug)->first()->load('products.image');
+        $allProducts = Category::where('slug', $categorySlug)->first()->load('products.image', 'products');
 
         return view('product.show', [
             'categorySlug' => $categorySlug,

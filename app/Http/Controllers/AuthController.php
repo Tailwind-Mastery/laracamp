@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth')->only(['logout']);
         $this->middleware('auth:sanctum')->only(['logoutAPI']);
+        $this->middleware('guest')->only(['loginIndex', 'registerIndex']);
         // $this->middleware('subscribed')->except('store');
     }
     
@@ -50,7 +50,7 @@ class AuthController extends Controller
 
             session()->regenerate();
 
-            return to_route('productPage');
+            return to_route('homePage');
 
         } else {
             return redirect()

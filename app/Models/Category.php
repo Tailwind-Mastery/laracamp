@@ -16,6 +16,11 @@ class Category extends Model
         return $this->hasOne(Image::class);
     }
 
+    public function group(): HasMany
+    {
+        return $this->hasMany(Group::class);
+    }
+
     public function fiveProducts(): HasMany
     {
         return $this->hasMany(Product::class)->limit(5);

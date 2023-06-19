@@ -6,15 +6,19 @@
     <div class="flex justify-between">
 
         <nav class="flex gap-1">
-            <a href="{{route('home')}}" class="@if(url()->current() == route('home')) font-medium @endif">Laracamp</a>
+            <a href="{{route('homePage')}}" class="@if(url()->current() == route('homePage')) font-medium @endif">Laracamp</a>
         </nav>
 
         <nav class="hidden lg:flex gap-2">
             
-            
             <a href="{{route('storePage')}}" class="@if(url()->current() == route('storePage')) font-medium @endif">Store</a>
 
             <a href="{{route('categoryPage')}}" class="@if(url()->current() == route('categoryPage')) font-medium @endif">Category</a>
+
+            <a href="{{route('searchPage')}}" class="@if(url()->current() == route('searchPage')) font-medium @endif">Search</a>
+            @auth
+            <a href="{{route('cartPage')}}" class="@if(url()->current() == route('cartPage')) font-medium @endif">Cart</a>
+            @endauth
             
         </nav>
 
@@ -48,15 +52,21 @@
 
             <a href="{{route('storePage')}}" class="@if(url()->current() == route('storePage')) font-medium @endif">Store</a>
             <a href="{{route('categoryPage')}}" class="@if(url()->current() == route('categoryPage')) font-medium @endif">Category</a>
+            <a href="{{route('searchPage')}}" class="@if(url()->current() == route('searchPage')) font-medium @endif">Search</a>
+            @auth
+            <a href="{{route('cartPage')}}" class="@if(url()->current() == route('cartPage')) font-medium @endif">Cart</a>
+            @endauth
 
         </div>
-
+        
+        @guest
         <div class="flex gap-1 flex-col border-t py-2">
-
+            
             <a href="{{route('loginPage')}}" class="@if(url()->current() == route('loginPage')) font-medium @endif">Login</a>
             <a href="{{route('registerPage')}}" class="@if(url()->current() == route('registerPage')) font-medium @endif">Register</a>
-
+            
         </div>
+        @endguest
 
     </aside>
 

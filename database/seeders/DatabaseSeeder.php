@@ -4,10 +4,12 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Design;
+use App\Models\Group;
 use App\Models\Image;
 use App\Models\Product;
 use App\Models\Review;
@@ -726,7 +728,7 @@ class DatabaseSeeder extends Seeder
         ];
 
         if(count($users) == count($userImgs)) {
-            foreach ($users as $key => $each) {
+            foreach ($users as $userKey => $each) {
 
                 $user = new User();
                 $user->name = $each['name'];
@@ -744,7 +746,7 @@ class DatabaseSeeder extends Seeder
                 $user->save();
 
                 // Image Upload
-                $newFile = new File(storage_path('app/'.$userImgs[$key]));
+                $newFile = new File(storage_path('app/'.$userImgs[$userKey]));
                 $title = $newFile->getFilename();
                 $size = $newFile->getSize();
                 $mimetype = $newFile->getMimeType();
@@ -832,6 +834,24 @@ class DatabaseSeeder extends Seeder
                         'user_id' => 10,
                     ],
                 ],
+                'groups' => [
+                    'title' => 'Generation',
+                    'description' => 'Which generation is perfect for me ?',
+                    'types' => [
+                        [
+                            'title' => '1st',
+                            'description' => '75dB(SPL) 2hrs',
+                        ],
+                        [
+                            'title' => '2nd',
+                            'description' => '75dB(SPL) 4hrs',
+                        ],
+                        [
+                            'title' => '3rd',
+                            'description' => '75dB(SPL) 6hrs',
+                        ],
+                    ]
+                ]
             ], 
             [
                 'title' => 'Bags',
@@ -900,6 +920,24 @@ class DatabaseSeeder extends Seeder
                         'user_id' => 10,
                     ],
                 ],
+                'groups' => [
+                    'title' => 'Size',
+                    'description' => 'Which size should I prefer ?',
+                    'types' => [
+                        [
+                            'title' => '18L',
+                            'description' => 'Perfect for a reasonable amount of snacks',
+                        ],
+                        [
+                            'title' => '20L',
+                            'description' => 'Enough room for a snacks and clothes backpack',
+                        ],
+                        [
+                            'title' => '22L',
+                            'description' => 'Large room for picnic and lunch boxes for fun outing',
+                        ],
+                    ]
+                ]
             ], 
             [
                 'title' => 'Boats',
@@ -967,6 +1005,24 @@ class DatabaseSeeder extends Seeder
                         'price' => 699,
                         'user_id' => 10,
                     ],
+                ],
+                'groups' => [
+                    'title' => 'Passenger',
+                    'description' => 'How many passenger should I consider ?',
+                    'types' => [
+                        [
+                            'title' => '5-6 People',
+                            'description' => 'Size must be 15 - 20 ft',
+                        ],
+                        [
+                            'title' => '8-10 People',
+                            'description' => 'Size must be 24 - 26 ft',
+                        ],
+                        [
+                            'title' => '12-14 People',
+                            'description' => 'Size must be 27 - 30 ft',
+                        ],
+                    ]
                 ],
             ],
             [
@@ -1036,6 +1092,24 @@ class DatabaseSeeder extends Seeder
                         'user_id' => 10,
                     ],
                 ],
+                'groups' => [
+                    'title' => 'Transmission',
+                    'description' => 'Which transmission should I drive ?',
+                    'types' => [
+                        [
+                            'title' => 'Manual',
+                            'description' => 'Hatch, Sedan, SUV, MUV, Coupe, Convert, Pickup',
+                        ],
+                        [
+                            'title' => 'Automatic',
+                            'description' => 'Hatch, Sedan, SUV, MUV, Coupe, Convert, Pickup',
+                        ],
+                        [
+                            'title' => 'CVT',
+                            'description' => 'Hatch, Sedan, SUV, MUV, Coupe, Convert, Pickup',
+                        ],
+                    ]
+                ],
             ], 
             [
                 'title' => 'Chairs',
@@ -1103,7 +1177,25 @@ class DatabaseSeeder extends Seeder
                         'price' => 699,
                         'user_id' => 10,
                     ],
-                ]
+                ],
+                'groups'=> [
+                    'title' => 'Material',
+                    'description' => 'Which material should I prefer ?',
+                    'types' => [
+                        [
+                            'title' => 'Wood',
+                            'description' => 'Wing, Arm, Chaise, Rocking, Windsor, Folding, Club, Office',
+                        ],
+                        [
+                            'title' => 'Steel',
+                            'description' => 'Wing, Arm, Chaise, Rocking, Windsor, Folding, Club, Office',
+                        ],
+                        [
+                            'title' => 'Plastic',
+                            'description' => 'Wing, Arm, Chaise, Rocking, Windsor, Folding, Club, Office',
+                        ],
+                    ]
+                ],
             ],
             [
                 'title' => 'Cycles',
@@ -1172,6 +1264,24 @@ class DatabaseSeeder extends Seeder
                         'user_id' => 10,
                     ],
                 ],
+                'groups' => [
+                    'title' => 'Tire',
+                    'description' => 'Which tire is best for my ride ?',
+                    'types' => [
+                        [
+                            'title' => 'Standard',
+                            'description' => '700C - 25mm',
+                        ],
+                        [
+                            'title' => 'Road',
+                            'description' => '700C - 23mm - 32mm',
+                        ],
+                        [
+                            'title' => 'Hybrid',
+                            'description' => '700C - 32 mm',
+                        ],
+                    ]
+                ],
             ],  
             [
                 'title' => 'Glasses',
@@ -1239,7 +1349,25 @@ class DatabaseSeeder extends Seeder
                         'price' => 699,
                         'user_id' => 10,
                     ],
-                ]
+                ],
+                'groups' => [
+                    'title' => 'Lens',
+                    'description' => 'Which lens suits my eyes ?',
+                    'types' => [
+                        [
+                            'title' => 'Small',
+                            'description' => '50mm or less',
+                        ],
+                        [
+                            'title' => 'Medium',
+                            'description' => '51mm to 54mm',
+                        ],
+                        [
+                            'title' => 'Large',
+                            'description' => 'Wider then 55mm',
+                        ],
+                    ]
+                ],
             ], 
             [
                 'title' => 'Houses',
@@ -1338,6 +1466,24 @@ class DatabaseSeeder extends Seeder
                         'city_id' => 373
                     ],
                 ],
+                'groups'=> [
+                    'title' => 'Living',
+                    'description' => 'Which living standard is my style ?',
+                    'types' => [
+                        [
+                            'title' => 'Standard',
+                            'description' => '3 rooms, 1 kitchen, 2 bathrooms and 1 garden / gallery',
+                        ],
+                        [
+                            'title' => 'Modern',
+                            'description' => '5 rooms, 2 kitchen, 2 bathrooms and 1 garden / gallery',
+                        ],
+                        [
+                            'title' => 'Luxury',
+                            'description' => '7 rooms, 3 kitchen, 3 bathrooms and 1 garden / gallery',
+                        ],
+                    ]
+                ],
             ], 
             [
                 'title' => 'Jwellery',
@@ -1406,6 +1552,24 @@ class DatabaseSeeder extends Seeder
                         'user_id' => 10,
                     ],
                 ],
+                'groups'=> [
+                    'title' => 'Carrat',
+                    'description' => 'How many carrots should I consider ?',
+                    'types' => [
+                        [
+                            'title' => '24K',
+                            'description' => 'Perfect weight for pure Gold',
+                        ],
+                        [
+                            'title' => '18K',
+                            'description' => 'Jwellerty contains 75 percent Gold',
+                        ],
+                        [
+                            'title' => '6K',
+                            'description' => 'Copper or Silver with 25 percent gold',
+                        ],
+                    ]
+                ],
             ], 
             [
                 'title' => 'Mobiles',
@@ -1473,7 +1637,25 @@ class DatabaseSeeder extends Seeder
                         'price' => 699,
                         'user_id' => 10,
                     ],
-                ]
+                ],
+                'groups'=> [
+                    'title' => 'Screen',
+                    'description' => 'Which screen size is good for me ?',
+                    'types' => [
+                        [
+                            'title' => 'Common',
+                            'description' => '720 x 1280, most common mobile size',
+                        ],
+                        [
+                            'title' => '4.7" - 7.7"',
+                            'description' => '480 x 800, 640 x 1136, 720 x 1280',
+                        ],
+                        [
+                            'title' => '7.7" - 9.7"',
+                            'description' => '750 x 1334, 1080 x 1920, and 1440 x 2560',
+                        ],
+                    ]
+                ],
             ], 
             [
                 'title' => 'Paintings',
@@ -1541,6 +1723,24 @@ class DatabaseSeeder extends Seeder
                         'price' => 699,
                         'user_id' => 10,
                     ],
+                ],
+                'groups' => [
+                    'title' => 'Canvas',
+                    'description' => 'Which canvas suits my room ?',
+                    'types' => [
+                        [
+                            'title' => 'Small',
+                            'description' => '4 to 7 inches canvas',
+                        ],
+                        [
+                            'title' => 'Medium',
+                            'description' => '8 to 16 inches canvas',
+                        ],
+                        [
+                            'title' => 'Large',
+                            'description' => '18 to 48 inches canvas',
+                        ],
+                        ]
                 ],
             ], 
             [
@@ -1610,6 +1810,24 @@ class DatabaseSeeder extends Seeder
                         'user_id' => 10,
                     ],
                 ],
+                'groups' => [
+                    'title' => 'Bottle',
+                    'description' => 'Which bottle serves me well ?',
+                    'types' => [
+                        [
+                            'title' => '0.8 Fl Oz',
+                            'description' => '1.5 - 25 mL, 15 - 250 sprays',
+                        ],
+                        [
+                            'title' => '2 Fl Oz',
+                            'description' => '40 - 60 mL, 300 - 600 sprays',
+                        ],
+                        [
+                            'title' => '3.4 Fl Oz',
+                            'description' => '75 - 100 mL, 750 - 100 sprays',
+                        ],
+                    ]
+                ],
             ], 
             [
                 'title' => 'Plants',
@@ -1677,6 +1895,24 @@ class DatabaseSeeder extends Seeder
                         'price' => 699,
                         'user_id' => 10,
                     ],
+                ],
+                'groups' => [
+                    'title' => 'Family',
+                    'description' => 'Which family should I grow ?',
+                    'types' => [
+                        [
+                            'title' => 'Seed',
+                            'description' => 'Herbs, Shrubs, Trees, Climbers, and Creepers',
+                        ],
+                        [
+                            'title' => 'Ferns',
+                            'description' => 'Herbs, Shrubs, Trees, Climbers, and Creepers',
+                        ],
+                        [
+                            'title' => 'Mosses',
+                            'description' => 'Herbs, Shrubs, Trees, Climbers, and Creepers',
+                        ],
+                    ]
                 ],
             ], 
             [
@@ -1746,6 +1982,44 @@ class DatabaseSeeder extends Seeder
                         'user_id' => 10,
                     ],
                 ],
+                'groups' => [
+                    'title' => 'Size',
+                    'description' => 'Which size should I pick ?',
+                    'types' => [
+                        [
+                            'title' => 'XXS',
+                            'description' => 'Very Small',
+                        ],
+                        [
+                            'title' => 'XS',
+                            'description' => 'Exra Small',
+                        ],
+                        [
+                            'title' => 'S',
+                            'description' => 'Small',
+                        ],
+                        [
+                            'title' => 'M',
+                            'description' => 'Medium',
+                        ],
+                        [
+                            'title' => 'L',
+                            'description' => 'Large',
+                        ],
+                        [
+                            'title' => 'XL',
+                            'description' => 'Extra Large',
+                        ],
+                        [
+                            'title' => '2XL',
+                            'description' => 'Much Large',
+                        ],
+                        [
+                            'title' => '3XL',
+                            'description' => 'Very Large',
+                        ],
+                    ]
+                ],
             ], 
             [
                 'title' => 'Toys',
@@ -1814,6 +2088,24 @@ class DatabaseSeeder extends Seeder
                         'user_id' => 10,
                     ],
                 ],
+                'groups' => [
+                    'title' => 'Age Group',
+                    'description' => 'What is best for my child ?',
+                    'types' => [
+                        [
+                            'title' => 'Infants',
+                            'description' => 'Things to drop, build, push, roll, pull and play with',
+                        ],
+                        [
+                            'title' => 'Toddlers',
+                            'description' => 'Things to solve, build, create, music and throwing',
+                        ],
+                        [
+                            'title' => 'Kindergarten',
+                            'description' => 'Things to talk, build, create, computer, music and share',
+                        ],
+                    ]
+                ],
             ]
         ];
 
@@ -1831,7 +2123,7 @@ class DatabaseSeeder extends Seeder
         ];
         
         if(count($categories) == count($catImgs)) {
-            foreach ($categories as $key => $each) {
+            foreach ($categories as $catKey => $each) {
                 $category = new Category();
                 $category->title = $each['title'];
                 $category->slug = $each['slug'];
@@ -1839,7 +2131,7 @@ class DatabaseSeeder extends Seeder
                 $category->save();
 
                 // Image Upload
-                $newFile = new File(storage_path('app/'.$catImgs[$key]));
+                $newFile = new File(storage_path('app/'.$catImgs[$catKey]));
                 $title = $newFile->getFilename();
                 $size = $newFile->getSize();
                 $mimetype = $newFile->getMimeType();
@@ -1857,7 +2149,7 @@ class DatabaseSeeder extends Seeder
                 $image->mime = $mime;
                 $image->save();
 
-                foreach($each['products'] as $key => $eachProd) {
+                foreach($each['products'] as $prodKey => $eachProd) {
 
                     $product = new Product();
                     $product->user_id = $eachProd['user_id'];
@@ -1876,49 +2168,49 @@ class DatabaseSeeder extends Seeder
                     $newFile = null;
                     switch ($category->slug) {
                         case 'airpods':
-                            $newFile = new File(storage_path('app/'.Storage::files('public/airpodImgs')[$key]));
+                            $newFile = new File(storage_path('app/'.Storage::files('public/airpodImgs')[$prodKey]));
                         break;
                         case 'bags':
-                            $newFile = new File(storage_path('app/'.Storage::files('public/bagImgs')[$key]));
+                            $newFile = new File(storage_path('app/'.Storage::files('public/bagImgs')[$prodKey]));
                         break;
                         case 'boats':
-                            $newFile = new File(storage_path('app/'.Storage::files('public/boatImgs')[$key]));
+                            $newFile = new File(storage_path('app/'.Storage::files('public/boatImgs')[$prodKey]));
                         break;
                         case 'cars':
-                            $newFile = new File(storage_path('app/'.Storage::files('public/carImgs')[$key]));
+                            $newFile = new File(storage_path('app/'.Storage::files('public/carImgs')[$prodKey]));
                         break;
                         case 'chairs':
-                            $newFile = new File(storage_path('app/'.Storage::files('public/chairImgs')[$key]));
+                            $newFile = new File(storage_path('app/'.Storage::files('public/chairImgs')[$prodKey]));
                         break;
                         case 'cycles':
-                            $newFile = new File(storage_path('app/'.Storage::files('public/cycleImgs')[$key]));
+                            $newFile = new File(storage_path('app/'.Storage::files('public/cycleImgs')[$prodKey]));
                         break;
                         case 'glasses':
-                            $newFile = new File(storage_path('app/'.Storage::files('public/glassImgs')[$key]));
+                            $newFile = new File(storage_path('app/'.Storage::files('public/glassImgs')[$prodKey]));
                         break;
                         case 'houses':
-                            $newFile = new File(storage_path('app/'.Storage::files('public/houseImgs')[$key]));
+                            $newFile = new File(storage_path('app/'.Storage::files('public/houseImgs')[$prodKey]));
                         break;
                         case 'jwellery':
-                            $newFile = new File(storage_path('app/'.Storage::files('public/jwelleryImgs')[$key]));
+                            $newFile = new File(storage_path('app/'.Storage::files('public/jwelleryImgs')[$prodKey]));
                         break;
                         case 'mobiles':
-                            $newFile = new File(storage_path('app/'.Storage::files('public/mobImgs')[$key]));
+                            $newFile = new File(storage_path('app/'.Storage::files('public/mobImgs')[$prodKey]));
                         break;
                         case 'paintings':
-                            $newFile = new File(storage_path('app/'.Storage::files('public/paintImgs')[$key]));
+                            $newFile = new File(storage_path('app/'.Storage::files('public/paintImgs')[$prodKey]));
                         break;
                         case 'perfumes':
-                            $newFile = new File(storage_path('app/'.Storage::files('public/perfumeImgs')[$key]));
+                            $newFile = new File(storage_path('app/'.Storage::files('public/perfumeImgs')[$prodKey]));
                         break;
                         case 'plants':
-                            $newFile = new File(storage_path('app/'.Storage::files('public/plantImgs')[$key]));
+                            $newFile = new File(storage_path('app/'.Storage::files('public/plantImgs')[$prodKey]));
                         break;
                         case 'shirts':
-                            $newFile = new File(storage_path('app/'.Storage::files('public/shirtImgs')[$key]));
+                            $newFile = new File(storage_path('app/'.Storage::files('public/shirtImgs')[$prodKey]));
                         break;
                         case 'toys':
-                            $newFile = new File(storage_path('app/'.Storage::files('public/toyImgs')[$key]));
+                            $newFile = new File(storage_path('app/'.Storage::files('public/toyImgs')[$prodKey]));
                         break;
                     }
                     
@@ -1938,16 +2230,32 @@ class DatabaseSeeder extends Seeder
                     $image->mimetype = $mimetype;
                     $image->mime = $mime;
                     $image->save();
-
-                    // Review 
+                    
+                    // Cart, Review 
                     for($i=1; $i< 11; $i++) {
                         if($eachProd['user_id'] == $i){continue;}
+
+                        $cart = new Cart();
+                        $cart->user_id = $i;
+                        $cart->product_id = $product->id;
+                        $cart->save();
+                        
                         $review = new Review();
                         $review->user_id = $i;
                         $review->product_id = $product->id;
                         $review->review = $reviews[$i-1];
                         $review->save();
                     }
+                }
+
+                foreach($each['groups']['types'] as $eachGroup) {
+                    $group = new Group();
+                    $group->category_id = $category->id;
+                    $group->group_title = $each['groups']['title'];
+                    $group->group_description = $each['groups']['description'];
+                    $group->title = $eachGroup['title'];
+                    $group->description = $eachGroup['description'];
+                    $group->save();
                 }
                 
             }
@@ -2017,7 +2325,7 @@ class DatabaseSeeder extends Seeder
         ];
 
         if(count($collection) == count($collectionImgs)) {
-            foreach ($collection as $key => $each) {
+            foreach ($collection as $collKey => $each) {
                 $design = new Design();
                 $design->title = $each['title'];
                 $design->slug = $each['slug'];
@@ -2025,7 +2333,7 @@ class DatabaseSeeder extends Seeder
                 $design->save();
 
                 // Image Upload
-                $newFile = new File(storage_path('app/'.$collectionImgs[$key]));
+                $newFile = new File(storage_path('app/'.$collectionImgs[$collKey]));
                 $title = $newFile->getFilename();
                 $size = $newFile->getSize();
                 $mimetype = $newFile->getMimeType();
@@ -2044,6 +2352,6 @@ class DatabaseSeeder extends Seeder
 
             }
         }
-        
+
     }
 }

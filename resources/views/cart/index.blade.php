@@ -6,6 +6,13 @@
 
     <section class="flex flex-col gap-10 p-5 md:p-10">
 
+        @if(count($cart->items()) == 0)
+            <h2 class="text-xl md:text-3xl text-slate-300 font-semibold text-center">
+                You have not added any products
+            </h2>
+
+        @endif
+
         <article class="grid grid-cols-1 lg:grid-cols-2 gap-x-10">
 
             @foreach($cart->items() as $each)
@@ -18,9 +25,9 @@
                     <div class="flex flex-col gap-3 justify-between">
 
                         <div class="flex flex-col">
-                            <p class="font-medium">
+                            <a href="{{route('showProduct', ['categorySlug' => $each->product->category->slug, 'productSlug' => $each->product->slug])}}" class="font-medium">
                                 {{$each->product->title}}
-                            </p>
+                            </a>
                             <p class="text-slate-500 text-sm">
                                 {{$each->product->category->title}}
                             </p>
@@ -40,43 +47,23 @@
                     
                 </div>
 
-                <div class="flex md:flex-col justify-between items-center md:items-end relative" x-data="{
-                        open: false,
-                        toggle(){this.open=!this.open},
-                        list: [1,2,3,4,5,6,7,8,9],
-                        items: 1,
-                        totalPrice: 0,
-                        setItems(each){
-                            this.open=false; this.items=each;
-                        },
-                        setPrice(){
-                            this.totalPrice = `$${this.items * $refs.itemPrice.value}`
-                        }
-                    }" x-effect="setPrice()">
+                <div class="flex md:flex-col justify-between items-center md:items-end">
 
-                    <div class="flex flex-col md:items-center items-start">
-                        
-                        <div class="rounded border flex items-center gap-3 px-3 py-1 cursor-pointer" @click="toggle()">
-                            <p class="text-sm" x-text="items"></p>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                            </svg>
-                        </div>
-
-                        <div class="rounded border flex items-center cursor-pointer absolute top-8 md:-left-[7.3rem] left-0 bg-white" x-show="open" x-transition>
-                            <template x-for="each in list">
-                                <p class="text-sm hover:bg-slate-200 px-1.5 py-1" x-text="each" @click="setItems(each)"></p>
-                            </template>
-                        </div>
-                        
+                    <div class="rounded border flex items-center gap-3 px-3 py-1">
+                        <p class="text-sm">{{$each->quantity}}</p>
+                        <p class="text-slate-500">Qty</p>
                     </div>
 
-                    <input type="hidden" value="{{$each->product->price}}" x-ref="itemPrice">
-                    <p class="font-medium" x-text="totalPrice"></p>
+                    <p class="font-medium">${{$each->product->price * $each->quantity}}</p>
 
-                    <button class="text-slate-500 font-medium text-sm">
-                        Remove
-                    </button>
+                    <form action="{{route('deleteCart')}}" method="post">
+                        @csrf
+                        @method('delete')
+                        <input type="hidden" name="cart_id" value="{{$each->id}}">
+                        <button type="submit" class="text-slate-500 font-medium text-sm">
+                            Remove
+                        </button>
+                    </form>
 
                 </div>
                 
@@ -96,7 +83,7 @@
                     Subtotal
                 </p>
                 <p class="font-medium">
-                    ${{$total_price}}
+                    ${{$subtotal}}
                 </p>
             </div>
             
@@ -105,7 +92,7 @@
                     Shipping Estimate
                 </p>
                 <p class="font-medium">
-                    $5.00
+                    ${{$shipping_estimate}}
                 </p>
             </div>
             
@@ -114,7 +101,7 @@
                     Tax Estimate
                 </p>
                 <p class="font-medium">
-                    $8.32
+                    ${{$tax_estimate}}
                 </p>
             </div>
             

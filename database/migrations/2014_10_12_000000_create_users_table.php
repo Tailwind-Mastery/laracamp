@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Card;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\State;
@@ -21,15 +22,18 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('password');
             $table->string('unhashed');
-            $table->string('name')->nullable();
+            $table->string('phone')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->text('about')->nullable();
             $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();
+            $table->string('house')->nullable();
             $table->string('address')->nullable();
+            $table->string('postal')->nullable();
             $table->foreignIdFor(State::class)->nullable();
             $table->foreignIdFor(Country::class)->nullable();
             $table->foreignIdFor(City::class)->nullable();
+            $table->foreignIdFor(Card::class)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -586,7 +586,6 @@ class DatabaseSeeder extends Seeder
 
         $users = [
             [
-                'name' => 'Amir Shay',
                 'firstname' => 'Amir',
                 'lastname' => 'Shay',
                 'email' => 'amirshay@gmail.com',
@@ -600,7 +599,6 @@ class DatabaseSeeder extends Seeder
                 'city_id' => 305,
             ],
             [
-                'name' => 'Elizue Dias',
                 'firstname' => 'Elizue',
                 'lastname' => 'Dias',
                 'email' => 'elizuedias@gmail.com',
@@ -614,7 +612,6 @@ class DatabaseSeeder extends Seeder
                 'city_id' => 222,
             ],
             [
-                'name' => 'Hassan Shahid',
                 'firstname' => 'Hassan',
                 'lastname' => 'Shahid',
                 'email' => 'hassanshahid@gmail.com',
@@ -628,7 +625,6 @@ class DatabaseSeeder extends Seeder
                 'city_id' => 1,
             ],
             [
-                'name' => 'Ghufran Siddiqui',
                 'firstname' => 'Ghufran',
                 'lastname' => 'Siddiqui',
                 'email' => 'ghufransiddiqui@gmail.com',
@@ -642,7 +638,6 @@ class DatabaseSeeder extends Seeder
                 'city_id' => 8,
             ],
             [
-                'name' => 'Jack Finnigan',
                 'firstname' => 'Jack',
                 'lastname' => 'Finnigan',
                 'email' => 'jackfinnigan@gmail.com',
@@ -656,7 +651,6 @@ class DatabaseSeeder extends Seeder
                 'city_id' => 192,
             ],
             [
-                'name' => 'Mike Baker',
                 'firstname' => 'Mike',
                 'lastname' => 'Baker',
                 'email' => 'mikebaker@gmail.com',
@@ -670,7 +664,6 @@ class DatabaseSeeder extends Seeder
                 'city_id' => 236,
             ],
             [
-                'name' => 'Paul Easton',
                 'firstname' => 'Paul',
                 'lastname' => 'Easton',
                 'email' => 'pauleaston@gmail.com',
@@ -684,7 +677,6 @@ class DatabaseSeeder extends Seeder
                 'city_id' => 220,
             ],
             [
-                'name' => 'Sam Clark',
                 'firstname' => 'Sam',
                 'lastname' => 'Clark',
                 'email' => 'samclark@gmail.com',
@@ -698,7 +690,6 @@ class DatabaseSeeder extends Seeder
                 'city_id' => 285,
             ],
             [
-                'name' => 'Vince Fleming',
                 'firstname' => 'Vince',
                 'lastname' => 'Fleming',
                 'email' => 'vincefleming@gmail.com',
@@ -712,7 +703,6 @@ class DatabaseSeeder extends Seeder
                 'city_id' => 202,
             ],
             [
-                'name' => 'Warren Wong',
                 'firstname' => 'Warren',
                 'lastname' => 'Wong',
                 'email' => 'warrenwong@gmail.com',
@@ -731,7 +721,6 @@ class DatabaseSeeder extends Seeder
             foreach ($users as $userKey => $each) {
 
                 $user = new User();
-                $user->name = $each['name'];
                 $user->firstname = $each['firstname'];
                 $user->lastname = $each['lastname'];
                 $user->email = $each['email'];
@@ -2235,11 +2224,12 @@ class DatabaseSeeder extends Seeder
                     for($i=1; $i< 11; $i++) {
                         if($eachProd['user_id'] == $i){continue;}
 
+                        /*
                         $cart = new Cart();
                         $cart->user_id = $i;
                         $cart->product_id = $product->id;
                         $cart->save();
-                        
+                        */
                         $review = new Review();
                         $review->user_id = $i;
                         $review->product_id = $product->id;

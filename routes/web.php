@@ -26,6 +26,13 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('homePage');
 });
 
+Route::controller(ProfileController::class)->group(function () {
+    Route::get('/profile', 'index')->name('profilePage');
+    Route::get('/profile/edit', 'edit')->name('editProfile');
+    Route::patch('/profile/update', 'update')->name('updateProfile');
+    // Route::post('/product/store', 'store')->name('storeProduct');
+});
+
 Route::controller(AuthController::class)->group(function () {
     Route::get('/login', 'loginIndex')->name('loginPage');
     Route::get('/register', 'registerIndex')->name('registerPage');
@@ -57,6 +64,8 @@ Route::controller(SearchController::class)->group(function () {
 
 Route::controller(CartController::class)->group(function () {
     Route::get('/cart', 'index')->name('cartPage');
+    Route::post('/cart/store', 'store')->name('storeCart');
+    Route::delete('/cart/delete', 'delete')->name('deleteCart');
 });
 
 Route::controller(CheckoutController::class)->group(function () {

@@ -18,6 +18,7 @@
             <a href="{{route('searchPage')}}" class="@if(url()->current() == route('searchPage')) font-medium @endif">Search</a>
             @auth
             <a href="{{route('cartPage')}}" class="@if(url()->current() == route('cartPage')) font-medium @endif">Cart</a>
+            <a href="{{route('profilePage')}}" class="@if(url()->current() == route('profilePage')) font-medium @endif">Profile</a>
             @endauth
             
         </nav>
@@ -55,19 +56,25 @@
             <a href="{{route('searchPage')}}" class="@if(url()->current() == route('searchPage')) font-medium @endif">Search</a>
             @auth
             <a href="{{route('cartPage')}}" class="@if(url()->current() == route('cartPage')) font-medium @endif">Cart</a>
+            <a href="{{route('profilePage')}}" class="@if(url()->current() == route('profilePage')) font-medium @endif">Profile</a>
             @endauth
 
         </div>
         
-        @guest
         <div class="flex gap-1 flex-col border-t py-2">
+            @guest
             
             <a href="{{route('loginPage')}}" class="@if(url()->current() == route('loginPage')) font-medium @endif">Login</a>
             <a href="{{route('registerPage')}}" class="@if(url()->current() == route('registerPage')) font-medium @endif">Register</a>
             
+            @endguest
+            
+            @auth
+            <form method="POST" action="{{route('postLogout')}}" class="">
+                @csrf <button>Logout</button>
+            </form>
+            @endauth
         </div>
-        @endguest
-
     </aside>
 
 </header>

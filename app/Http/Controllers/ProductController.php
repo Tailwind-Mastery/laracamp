@@ -23,6 +23,7 @@ class ProductController extends Controller
             'allProducts' => $allProducts
         ]);
     }
+    
     public function create()
     {
         return view('product.create');

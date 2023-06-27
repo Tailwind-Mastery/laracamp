@@ -193,15 +193,17 @@
         
         </div>
 
-        <form method="post" class="flex flex-col md:flex-row gap-3 mt-3">
+        <form method="post" class="flex flex-col md:flex-row gap-3 mt-3" action="{{route('storeCart')}}">
             @csrf
+
+            <input type="hidden" name="product_id" value="{{$product->id}}">
             
-            <button type="reset" class="text-white bg-black py-3 font-medium px-5 rounded md:w-1/2 text-center">
+            <button type="submit" class="text-white bg-black py-3 font-medium px-5 rounded md:w-1/2 text-center">
                 Add to Bag
             </button>
 
             
-            <button type="reset" class="text-white bg-black py-3 font-medium px-5 rounded md:w-1/2 text-center">
+            <button class="text-white bg-black py-3 font-medium px-5 rounded md:w-1/2 text-center">
                 Add to favoirte
             </button>
 

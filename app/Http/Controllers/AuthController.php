@@ -12,7 +12,7 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->only(['logout']);
-        $this->middleware('auth:sanctum')->only(['logoutAPI']);
+        // $this->middleware('auth:sanctum')->only(['logoutAPI']);
         $this->middleware('guest')->only(['loginIndex', 'registerIndex']);
         // $this->middleware('subscribed')->except('store');
     }
@@ -163,7 +163,7 @@ class AuthController extends Controller
         
     public function logoutAPI()
     {
-        auth()->user()->currentAccessToken()->delete();
+        // auth()->user()->currentAccessToken()->delete();
         return response()->json([
             'User Logged Out'
         ]);

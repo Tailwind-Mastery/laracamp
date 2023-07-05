@@ -17,6 +17,11 @@ class Product extends Model
         return $this->hasOne(Image::class);
     }
 
+    public function tax(): HasOne
+    {
+        return $this->hasOne(Tax::class);
+    }
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

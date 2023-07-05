@@ -5,6 +5,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SearchController;
@@ -70,4 +71,11 @@ Route::controller(CartController::class)->group(function () {
 
 Route::controller(CheckoutController::class)->group(function () {
     Route::get('/checkout', 'index')->name('checkoutPage');
+});
+
+Route::controller(OrderController::class)->group(function () {
+    Route::get('/orders', 'index')->name('orderPage');
+    Route::post('/order/store', 'store')->name('storeOrder');
+    Route::patch('/order/update', 'update')->name('updateOrder');
+    Route::delete('/order/delete', 'delete')->name('deleteOrder');
 });

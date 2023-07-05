@@ -14,6 +14,7 @@ use App\Models\Image;
 use App\Models\Product;
 use App\Models\Review;
 use App\Models\State;
+use App\Models\Tax;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Http\File;
@@ -2219,6 +2220,14 @@ class DatabaseSeeder extends Seeder
                     $image->mimetype = $mimetype;
                     $image->mime = $mime;
                     $image->save();
+
+                    // Tax
+                    $tax = new Tax();
+                    $tax->product_id = $product->id;
+                    $tax->shipping = $product->price * 0.1;
+                    $tax->tax = $product->price * 0.1;
+                    $tax->discount = $product->price * 0.1;
+                    $tax->save();
                     
                     // Cart, Review 
                     for($i=1; $i< 11; $i++) {

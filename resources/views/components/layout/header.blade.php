@@ -18,6 +18,7 @@
             <a href="{{route('searchPage')}}" class="@if(url()->current() == route('searchPage')) font-medium @endif">Search</a>
             @auth
             <a href="{{route('cartPage')}}" class="@if(url()->current() == route('cartPage')) font-medium @endif">Cart</a>
+            <a href="{{route('orderPage')}}" class="@if(url()->current() == route('orderPage')) font-medium @endif">Order</a>
             <a href="{{route('profilePage')}}" class="@if(url()->current() == route('profilePage')) font-medium @endif">Profile</a>
             @endauth
             
@@ -56,6 +57,7 @@
             <a href="{{route('searchPage')}}" class="@if(url()->current() == route('searchPage')) font-medium @endif">Search</a>
             @auth
             <a href="{{route('cartPage')}}" class="@if(url()->current() == route('cartPage')) font-medium @endif">Cart</a>
+            <a href="{{route('orderPage')}}" class="@if(url()->current() == route('orderPage')) font-medium @endif">Order</a>
             <a href="{{route('profilePage')}}" class="@if(url()->current() == route('profilePage')) font-medium @endif">Profile</a>
             @endauth
 

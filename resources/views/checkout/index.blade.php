@@ -254,7 +254,7 @@
                         Total Items
                     </p>
                     <p class="text-lg font-medium">
-                        12
+                        {{$total_items}}
                     </p>
                 </div>
 
@@ -263,7 +263,7 @@
                         Subtotal
                     </p>
                     <p class="text-lg font-medium">
-                        $1354
+                        ${{$subtotal}}
                     </p>
                 </div>
 
@@ -272,22 +272,13 @@
                         Shipping Fees
                     </p>
                     <p class="text-lg font-medium">
-                        $15
+                        ${{$shipping_estimate}}
                     </p>
                 </div>
 
                 <div class="flex items-center justify-between py-3 border-b">
                     <p class="text-slate-500">
                         Discount 10%
-                    </p>
-                    <p class="text-lg font-medium">
-                        $8
-                    </p>
-                </div>
-
-                <div class="flex items-center justify-between py-3 border-b">
-                    <p class="text-slate-500">
-                        Taxes
                     </p>
                     <p class="text-lg font-medium">
                         $10
@@ -299,7 +290,16 @@
                         Discount Coupon
                     </p>
                     <p class="text-lg font-medium">
-                        empty
+                        Laracamp
+                    </p>
+                </div>
+
+                <div class="flex items-center justify-between py-3 border-b">
+                    <p class="text-slate-500">
+                        Taxes
+                    </p>
+                    <p class="text-lg font-medium">
+                        ${{$tax_estimate}}
                     </p>
                 </div>
 
@@ -308,13 +308,16 @@
                         Total
                     </p>
                     <p class="text-lg font-medium">
-                        $10056
+                        ${{$total_price}}
                     </p>
                 </div>
 
-                <a href="{{route('cartPage')}}" class="bg-black py-3 text-center text-white font-medium rounded">
-                    Confirm Order
-                </a>
+                <form action="{{route('storeOrder')}}" method="post" class="flex">
+                    @csrf
+                    <button type="submit" class="bg-black py-3 text-center text-white font-medium rounded w-full">
+                        Confirm Order
+                    </button>
+                </form>
 
             </aside>
 

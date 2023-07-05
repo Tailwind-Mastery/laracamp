@@ -19,22 +19,20 @@ class CartController extends Controller
     {
         $cart = Cart::where('user_id', auth()->id())->orderBy('updated_at', 'desc')->with(['product', 'product.image', 'product.category'])->paginate(10);
 
-        $total = Cart::where('user_id', auth()->id())->with(['product'])->get();
+        $total = Cart::where('user_id', auth()->id())->with(['product', 'product.tax'])->get();
 
         $total_price = 0;
+        $shipping_price = 0;
+        $tax_price = 0;
         foreach ($total as $value) {
             $total_price += $value->product->price * $value->quantity;
+            $shipping_price += $value->product->tax->shipping * $value->quantity;
+            $tax_price += $value->product->tax->tax * $value->quantity;
         }
-
-        $total_count = $total->count();
         $subtotal = number_format($total_price);
-        $shipping_estimate = 5;
-        $tax_estimate = 0.5;
-        
-        $shipping_estimate_clean = $shipping_estimate * $total_count;
-        $tax_estimate_clean = $tax_estimate * $total_count;
-        
-        $total_price_clean = number_format($total_price * $tax_estimate_clean * $shipping_estimate_clean);
+        $shipping_estimate_clean = number_format($shipping_price);
+        $tax_estimate_clean = number_format($tax_price);
+        $total_price_clean = number_format($total_price + $shipping_price + $tax_price);
 
         return view('cart.index', [
             'cart' => $cart,
